@@ -1,0 +1,2301 @@
+<html class="light">
+	<head>
+		<meta charset="utf-8" />
+		<title>XéXé Boxes</title>
+		<meta
+			name="viewport"
+			content="width=device-width, initial-scale=1, user-scalable=no"
+		/>
+		<meta
+			name="description"
+			content='XexeBox mang đến cho bạn trải nghiệm đầy thú vị với các hộp quà "blind box". 🎁 Các hộp quà đều có giải thưởng mỗi lần mở hộp, với các sản phẩm đa dạng : như mỹ phẩm , phụ kiện iphone , phụ kiện công nghệ...., 👉👉phù hợp với mọi lứa tuổi và sở thích.'
+		/>
+		<meta
+			property="og:image"
+			content="https://mgboxadm.com/image/ogimg.jpg"
+		/>
+		<meta
+			name="facebook-domain-verification"
+			content="mc7jsgqbq5fsq8ubrq65vvlhngl5cy"
+		/>
+		<meta
+			name="google-site-verification"
+			content="-2O4iQnog5ztruoC5cUgTVQnPCc7qel9mAJuLmAn7N4"
+		/>
+		<link rel="icon" type="image/svg+xml" href="favicon.svg" />
+		<link rel="icon" type="image/png" href="favicon.png" />
+		<link rel="preload" as="style" href="css/entry.css" />
+		<link rel="preload" as="style" href="css/swiper.css" />
+		<link rel="manifest" href="manifest.json" />
+		<link rel="stylesheet" href="css/entry.css" />
+		<link rel="stylesheet" href="css/swiper.css" />
+
+		<script
+			type="text/javascript"
+			src="jquery/jquery-2.2.4.min.js"
+		></script>
+		<!--<script type="text/javascript" src="/jquery/swiper.js"></script>-->
+		<!--<script type="text/javascript" src="/jquery/swiper.min.js"></script>-->
+		<script
+			type="text/javascript"
+			src="jquery/swiper-bundle.min.js"
+		></script>
+
+		<script type="text/javascript">
+			var script = document.createElement("script");
+			script.type = "text/javascript";
+			script.src = "/js/config.js?t=" + new Date().getTime(); // 使用时间戳
+			document.head.appendChild(script);
+		</script>
+
+		<script type="text/javascript">
+			// 脚本路径与对应的版本号键名
+			const scripts = [
+				{ path: "/js/header.js", key: "header_js" },
+				{
+					path: "/js/facebook-pixel-tracker.js",
+					key: "facebook_pixel_tracker_js",
+				},
+			];
+
+			// 动态加载脚本
+			function loadScript(src) {
+				return new Promise((resolve, reject) => {
+					const script = document.createElement("script");
+					script.src = src;
+					script.onload = resolve;
+					script.onerror = reject;
+					document.head.appendChild(script);
+				});
+			}
+			function init() {}
+			// 获取版本号并加载脚本
+			function loadScriptsWithVersion() {
+				try {
+					// 请求版本号
+					// const response = await fetch('/api/version');
+					// const versions = await response.json();
+					// console.log(window.VersionConfig)
+					let versions =
+						JSON.parse(localStorage.getItem("js_vers")) || {};
+
+					// 遍历脚本列表，动态加载
+					for (const { path, key } of scripts) {
+						const version = versions[key];
+						if (!version) {
+							var scriptUrl = `${path}?v=` + new Date().getTime();
+						} else {
+							var scriptUrl = `${path}?v=${version}`;
+						}
+						loadScript(scriptUrl);
+						console.log(`已加载: ${scriptUrl}`);
+					}
+				} catch (error) {
+					console.error("加载脚本失败:", error);
+				}
+			}
+
+			loadScriptsWithVersion(); // 等待脚本加载完成
+			init(); // 调用 init 方法
+		</script>
+		<script type="text/javascript" src="jquery/language.js%3Fv=325"></script>
+		<script type="text/javascript" src="jquery/lang.js%3Fv=325"></script>
+		<script
+			src="https://accounts.google.com/gsi/client"
+			async
+			defer
+		></script>
+		<script src="https://cust.xexeboxes.com/customerServer.js"></script>
+		<script src="https://cdnjs.cloudflare.com/ajax/libs/jsencrypt/3.0.0-rc.1/jsencrypt.min.js"></script>
+		<div id="fb-root"></div>
+		<script
+			async
+			defer
+			crossorigin="anonymous"
+			src="https://connect.facebook.net/en_US/sdk.js"
+		></script>
+		<!--<script src="https://cdn.bootcss.com/crypto-js/3.1.9/crypto-js.min.js"></script>-->
+		<noscript>
+			<img
+				height="1"
+				width="1"
+				src="https://www.facebook.com/tr?id=1002455247962667&ev=PageView
+       &noscript=1"
+			/>
+		</noscript>
+
+		<style>
+			body {
+				margin: 0;
+				font-family: Arial, sans-serif;
+			}
+
+			.ad-overlay {
+				position: fixed;
+				top: 0;
+				left: 0;
+				width: 100%;
+				height: 100%;
+				background-color: rgba(0, 0, 0, 0.7);
+				display: flex;
+				justify-content: center;
+				align-items: center;
+				z-index: 1000;
+			}
+
+			.ad-wrapper {
+				width: 80%;
+				max-width: 352px;
+				display: flex;
+				flex-direction: column;
+				align-items: center;
+			}
+
+			.ad-image-container {
+				position: relative;
+				width: 100%;
+				border-radius: 10px 10px 0 0;
+				overflow: hidden;
+			}
+
+			.ad-background {
+				width: 100%;
+				display: block;
+			}
+
+			.ad-qrcode {
+				position: absolute;
+				bottom: 0;
+				left: 50%;
+				transform: translateX(-50%);
+				width: 63%;
+				height: auto;
+				background-color: white;
+				padding: 5px;
+				border-radius: 5px;
+			}
+
+			.ad-content {
+				width: 100%;
+				/*background-color: white;*/
+				padding: 0 20px 20px 20px;
+				box-sizing: border-box;
+				border-radius: 0 0 10px 10px;
+				text-align: center;
+			}
+
+			.ad-close-section {
+				display: flex;
+				flex-direction: column;
+				align-items: center;
+				margin-top: 10px;
+			}
+
+			.ad-checkbox-row {
+				display: flex;
+				align-items: center;
+				margin-bottom: 55px;
+			}
+
+			.ad-checkbox {
+				margin-right: 8px;
+			}
+
+			.ad-checkbox-label {
+				font-size: 14px;
+				color: #ffffff;
+			}
+
+			.ad-close-btn {
+				background: none;
+				border: none;
+				color: #ffffff;
+				font-size: 30px;
+				cursor: pointer;
+				padding: 0;
+				position: absolute;
+				right: 7px;
+				top: 23px;
+			}
+		</style>
+		<!-- 使用Font Awesome图标 -->
+		<link
+			rel="stylesheet"
+			href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css"
+		/>
+	</head>
+	<script>
+		// if ('serviceWorker' in navigator) {
+		//   window.addEventListener('load', () => {
+		//       navigator.serviceWorker.register('/sw.js', { scope: './' })
+		//       .then(reg => console.log("✅ Service Worker 注册成功:", reg))
+		//       .catch(err => console.log("❌ Service Worker 注册失败:", err));
+		//   });
+		// }
+		if ("serviceWorker" in navigator) {
+			navigator.serviceWorker
+				.getRegistrations()
+				.then(function (registrations) {
+					for (let registration of registrations) {
+						registration.unregister();
+					}
+				});
+		}
+	</script>
+
+	<body
+		class="overflow-hidden"
+		style="overflow: auto; background-color: #fff"
+	>
+	<noscript><iframe src="https://www.googletagmanager.com/ns.html?id=GTM-TT5R2LD2"
+					  height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
+		<div id="__nuxt" data-v-app="">
+			<div class="layout">
+				<div class="layout__header" style="background-color: #7c1820">
+					<header
+						data-v-c46e0b98=""
+						class="bg-[#620D18] transition-colors duration-300"
+						style="background-color: #7c1820"
+					>
+						<div
+							data-v-c46e0b98=""
+							class="h-[60px] py-2.5 px-4 flex items-center justify-center"
+						>
+							<div
+								data-v-c46e0b98=""
+								class="flex items-center text-white transition-colors duration-300 relative"
+								style="
+									width: 100%;
+									justify-content: space-between;
+								"
+							>
+								<a data-v-c46e0b98="" href="index.html" class="">
+									<img
+										src="image/index/Logo.png"
+										style="width: 125px; height: 32px"
+									/>
+								</a>
+								<img
+									src="image/index/menu.svg"
+									alt=""
+									style="
+										padding: 8px;
+										margin-left: auto;
+										margin-right: 10px;
+										background-color: #eadf77;
+										border-radius: 50%;
+									"
+									onclick="openMenuPop()"
+								/>
+								<a
+									data-v-c46e0b98=""
+									href="blog/my_notice.html"
+									class=""
+								>
+									<img
+										id="notice"
+										src="blog/images/notice.svg"
+										alt=""
+										style="
+											display: none;
+											margin-left: auto;
+											margin-right: 10px;
+											background-color: #eadf77;
+											border-radius: 50%;
+										"
+									/>
+									<img
+										id="new_notice"
+										src="blog/images/new_notice.svg"
+										alt=""
+										style="
+											display: none;
+											margin-left: auto;
+											margin-right: 10px;
+											background-color: #eadf77;
+											border-radius: 50%;
+										"
+									/>
+								</a>
+
+								<div
+									style="display: flex; align-items: center"
+									id="custom-link"
+								>
+									<div
+										style="
+											width: 36px;
+											height: 36px;
+											background-color: #eadf77;
+											border-radius: 50%;
+											display: flex;
+											align-items: center;
+											justify-content: center;
+										"
+									>
+										<svg
+											width="20"
+											height="20"
+											viewBox="0 0 20 18"
+											fill="none"
+											xmlns="http://www.w3.org/2000/svg"
+										>
+											<path
+												d="M10.1348 17.5C9.92192 17.5 9.74367 17.4282 9.6 17.2845C9.4565 17.141 9.38475 16.9628 9.38475 16.75C9.38475 16.5372 9.4565 16.359 9.6 16.2155C9.74367 16.0718 9.92192 16 10.1348 16H16.6923C16.7756 16 16.8477 15.9743 16.9088 15.923C16.9696 15.8718 17 15.8046 17 15.7212V8.727C17 6.81533 16.316 5.206 14.948 3.899C13.5802 2.592 11.9308 1.9385 10 1.9385C8.06917 1.9385 6.41983 2.592 5.052 3.899C3.684 5.206 3 6.81533 3 8.727V13.8652C3 14.0781 2.92817 14.2563 2.7845 14.4C2.641 14.5435 2.46283 14.6152 2.25 14.6152C1.7705 14.6152 1.359 14.4483 1.0155 14.1145C0.671833 13.7805 0.5 13.3737 0.5 12.8942V10.952C0.5 10.6277 0.592333 10.3305 0.777 10.0605C0.961667 9.79067 1.20267 9.57375 1.5 9.40975L1.54625 8.13275C1.62825 7.04425 1.91092 6.03592 2.39425 5.10775C2.87758 4.17958 3.49742 3.37158 4.25375 2.68375C5.01025 1.99592 5.88333 1.46 6.873 1.076C7.86283 0.691999 8.90517 0.5 10 0.5C11.0948 0.5 12.1346 0.691999 13.1193 1.076C14.1039 1.46 14.977 1.99333 15.7385 2.676C16.5 3.35867 17.1198 4.16408 17.598 5.09225C18.0762 6.02058 18.3614 7.02892 18.4538 8.11725L18.5 9.36925C18.791 9.50642 19.0304 9.70258 19.2183 9.95775C19.4061 10.2129 19.5 10.4975 19.5 10.8115V13.0442C19.5 13.3582 19.4061 13.6428 19.2183 13.898C19.0304 14.1532 18.791 14.3493 18.5 14.4865V15.7212C18.5 16.2134 18.3234 16.6329 17.9703 16.9797C17.6169 17.3266 17.1909 17.5 16.6923 17.5H10.1348ZM7.19225 10.7692C6.94742 10.7692 6.73875 10.6863 6.56625 10.5203C6.39392 10.3542 6.30775 10.1488 6.30775 9.90375C6.30775 9.65892 6.39392 9.45192 6.56625 9.28275C6.73875 9.11342 6.94742 9.02875 7.19225 9.02875C7.43725 9.02875 7.64592 9.11342 7.81825 9.28275C7.99075 9.45192 8.077 9.65892 8.077 9.90375C8.077 10.1488 7.99075 10.3542 7.81825 10.5203C7.64592 10.6863 7.43725 10.7692 7.19225 10.7692ZM12.8077 10.7692C12.5627 10.7692 12.3541 10.6863 12.1818 10.5203C12.0093 10.3542 11.923 10.1488 11.923 9.90375C11.923 9.65892 12.0093 9.45192 12.1818 9.28275C12.3541 9.11342 12.5627 9.02875 12.8077 9.02875C13.0526 9.02875 13.2612 9.11342 13.4337 9.28275C13.6061 9.45192 13.6923 9.65892 13.6923 9.90375C13.6923 10.1488 13.6061 10.3542 13.4337 10.5203C13.2612 10.6863 13.0526 10.7692 12.8077 10.7692ZM4.37125 9.2C4.26742 7.568 4.77508 6.1715 5.89425 5.0105C7.01342 3.84967 8.39867 3.26925 10.05 3.26925C11.4372 3.26925 12.6612 3.69842 13.722 4.55675C14.783 5.41508 15.4269 6.52625 15.6538 7.89025C14.2333 7.87358 12.9208 7.50058 11.7163 6.77125C10.5118 6.04175 9.58708 5.04175 8.94225 3.77125C8.68842 5.01475 8.15642 6.11408 7.34625 7.06925C6.53592 8.02442 5.54425 8.73467 4.37125 9.2Z"
+												fill="#7C1820"
+											/>
+										</svg>
+									</div>
+								</div>
+							</div>
+						</div>
+					</header>
+					<div
+						class="header-banner flex items-center justify-center"
+						style="background-color: #7c1820; padding-bottom: 10px"
+					>
+						<img src="image/index/verified_user.svg" alt="" />
+						<span
+							style="
+								color: #fff;
+								font-size: 10px;
+								margin-left: 10px;
+							"
+							data-translate-key="100% authentic products"
+							>Hàng chính hãng 100%</span
+						>
+						<img
+							src="image/index/actual.svg"
+							alt=""
+							style="margin-left: 20px"
+						/>
+						<span
+							style="
+								color: #fff;
+								font-size: 10px;
+								margin-left: 10px;
+							"
+							_t="100% winning probablity"
+							>Tỉ lệ trúng thật Hộp</span
+						>
+					</div>
+					<!-- 弹幕区域 -->
+					<div
+						id="barrage"
+						class="flex items-center justify-center"
+						style="background-color: #7c1820"
+					>
+						<div
+							class="barrage-container"
+							style="
+								overflow: hidden;
+								position: relative;
+								width: 70%;
+							"
+						>
+							<div
+								class="barrage-list"
+								style="display: flex; white-space: nowrap"
+							>
+								<!-- 弹幕内容将在这里动态插入 -->
+							</div>
+						</div>
+					</div>
+				</div>
+				<div class="layout__wrapper">
+					<div class="layout__content" style="padding: 0">
+						<div>
+							<div class="swiper banner_wrap">
+								<div
+									class="swiper-wrapper"
+									style="height: auto"
+									id="swiperItme"
+								></div>
+								<div
+									class="swiper-pagination swiper-pagination_banner_wrap"
+									style="position: relative;display: block;margin-top:20px;margin-bottom: 4px"
+								></div>
+							</div>
+							<script>
+								var mySwiper = new Swiper(".banner_wrap", {
+									observer: true, // 监听DOM变化
+									observeParents: true, // 监听父元素的变化
+									autoplay: true, //可选选项，自动滑动
+									pagination: {
+										el: ".swiper-pagination_banner_wrap",
+										clickable: true, // 使指示点可点击
+									},
+								});
+							</script>
+							<style>
+								.swiper-pagination-bullet {
+									background-color: #74171e;
+								}
+							</style>
+							<!-- 商品区域 -->
+							<!-- 闪抽盲盒 -->
+							<div style="padding: 15px; background: #e75d52">
+								<div
+									class="falsh-sale bg-white"
+									style="
+										padding: 1rem;
+										display: flex;
+										flex-direction: column;
+										border-radius: 8px;
+									"
+								>
+									<!--                            <div style="font-size: 18px;font-weight: 500;" data-translate-key="Flash Sale">Flash Sale-->
+									<!--                            </div>-->
+									<div class="flex justify-between">
+										<div
+											style="
+												font-size: 18px;
+												font-weight: 500;
+											"
+											data-translate-key="Flash Sale"
+										>
+											Flash Sale
+										</div>
+										<div
+											class="flex justify-between items-center"
+											style=""
+										>
+											<div
+												style="font-size: 12px;color:#404246;"
+												data-translate-key="Kết thúc sau:"
+											></div>
+											<div
+												id="countDown"
+												class="flex justify-between items-center"
+												style="margin-left: 10px"
+											></div>
+										</div>
+									</div>
+									<div id="falshList">
+									</div>
+								</div>
+							</div>
+							<div id="RecommendBox" style="display: none">
+								<div
+									class="category"
+									style="
+										display: flex;
+										flex-direction: column;
+										margin: 5px 0 0 0;
+										box-sizing: border-box;
+										/*background: url('/image/index/indexSwiperbgimg.png')*/
+									"
+								>
+									<div
+										style="
+											font-size: 18px;
+											font-weight: 500;
+											padding: 0rem 1rem 0 1rem;
+										"
+										_t="Recommend"
+									></div>
+
+									<div
+										class="swiper recommend_wrap"
+										style="width: 100%"
+									>
+										<div
+											class="swiper-wrapper"
+											style="height: auto;"
+											id="categoryListRecommend"
+										></div>
+										<div
+											class="swiper-pagination swiper-pagination1"
+											style="
+												margin-top: 0px;
+												top: -5px;
+												position: relative;
+											"
+										></div>
+									</div>
+								</div>
+							</div>
+
+							<script>
+								var mySwiper1 = new Swiper(".recommend_wrap", {
+									observer: true, // 监听DOM变化
+									observeParents: true, // 监听父元素的变化
+									delay: 4000,
+									autoplay: true, //可选选项，自动滑动
+
+									pagination: {
+										el: ".swiper-pagination1",
+										clickable: true, // 使指示点可点击
+									},
+								});
+							</script>
+							<!-- 分类盲盒 -->
+							<div
+								class="category"
+								style="
+									padding: 0rem 1rem 0 1rem;
+									display: flex;
+									flex-direction: column;
+									margin: 5px 0 0 0;
+									box-sizing: border-box;
+									background: #fdf4f4;
+								"
+							>
+								<div
+									style="font-size: 18px; font-weight: 500"
+									data-translate-key="Categories"
+								>
+									Danh mục
+								</div>
+								<div
+									class="category-nav"
+									style="
+										overflow-x: auto;
+										white-space: nowrap;
+									"
+									id="categoryNav"
+								></div>
+								<style>
+									.category-nav {
+										margin-top: 20px;
+										display: flex;
+										overflow-x: auto;
+										scroll-behavior: smooth;
+										-webkit-overflow-scrolling: touch;
+										/* 使滚动更流畅 */
+										scrollbar-width: none;
+										/* Firefox */
+										-ms-overflow-style: none;
+										/* IE 10+ */
+									}
+
+									.category-nav::-webkit-scrollbar {
+										display: none;
+									}
+
+									.category-item {
+										width: 14%;
+										display: flex;
+										flex-direction: column;
+										align-items: center;
+										margin: 0 5%;
+										border: none;
+										border-radius: 5px;
+										cursor: pointer;
+										transition: background-color 0.3s;
+										box-sizing: border-box;
+										background-color: transparent;
+										/* 默认背景色透明 */
+										outline: none;
+										/* 去除默认的焦点轮廓 */
+									}
+
+									.category-item:active,
+									.category-item:focus {
+										background-color: transparent;
+										/* 激活和焦点时背景色透明 */
+										outline: none;
+										/* 去除默认的焦点轮廓 */
+									}
+
+									.category-item .name {
+										color: #0e0e0e;
+										width: 100%;
+										white-space: wrap;
+										font-size: 12px;
+									}
+
+									.category-item .icon-box {
+										background-color: #fdf4f4;
+										border-radius: 50%;
+										padding: 10px;
+										box-sizing: border-box;
+										width: 64px;
+										height: 64px;
+										margin-bottom: 5px;
+										display: flex;
+										align-items: center;
+										justify-content: center;
+									}
+
+									.category-item .icon {
+										height: 30px;
+										/* width: 30px; */
+									}
+
+									* {
+										-webkit-tap-highlight-color: transparent;
+									}
+
+									.category-item.active .icon-box,
+									.category-item:hover .icon-box {
+										background-color: #690e19;
+										/* 使边框圆角 */
+									}
+								</style>
+								<div id="categoryList"></div>
+							</div>
+							<div
+								class="flex flex-wrap lg:flex-nowrap gap-2.5 lg:gap-5 relative"
+								style="flex-direction: column"
+							>
+								<!-- 平台保障 -->
+								<div
+									class="relative basis-full lg:basis-7/12 flex flex-col p-5 md:p-10 rounded-2xl transition-colors duration-300 z-[1]"
+									style="
+										align-items: center;
+										padding: 10px 1.25rem;
+									"
+								>
+									<div
+										style="
+											font-size: 18px;
+											font-weight: bold;
+											color: #0e0e0e;
+											margin-bottom: 30px;
+										"
+										data-translate-key="Rules"
+									>
+										Các Quy Tắc Hoạt Động của XéXé BOX
+									</div>
+									<div
+										style="
+											background-color: #fdf4f4;
+											border-radius: 50%;
+											padding: 18px;
+											width: 64px;
+											margin-bottom: 10px;
+										"
+									>
+										<svg
+											width="26"
+											height="26"
+											viewBox="0 0 29 21"
+											fill="none"
+											xmlns="http://www.w3.org/2000/svg"
+										>
+											<path
+												d="M8.16832 20.9453C7.1501 20.9453 6.28421 20.5889 5.57066 19.876C4.85688 19.1629 4.49999 18.2971 4.49999 17.2786H2.56932C2.28599 17.2786 2.04843 17.1828 1.85666 16.991C1.6651 16.7992 1.56932 16.5616 1.56932 16.2783C1.56932 15.9948 1.6651 15.7573 1.85666 15.566C2.04843 15.3744 2.28599 15.2786 2.56932 15.2786H5.18732C5.49666 14.7709 5.91332 14.3662 6.43732 14.0646C6.9611 13.7629 7.53755 13.612 8.16666 13.612C8.79577 13.612 9.37232 13.7629 9.89632 14.0646C10.4201 14.3662 10.8368 14.7709 11.1463 15.2786H17.0077L19.872 2.94531H6.47432C6.19099 2.94531 5.95354 2.84942 5.76199 2.65765C5.57021 2.46587 5.47432 2.22831 5.47432 1.94498C5.47432 1.66142 5.57021 1.42398 5.76199 1.23265C5.95354 1.04109 6.19099 0.945312 6.47432 0.945312H20.859C21.2521 0.945312 21.5692 1.09709 21.8103 1.40064C22.0512 1.70398 22.1247 2.04542 22.0307 2.42498L21.2153 5.94531H23.346C23.7278 5.94531 24.0893 6.03065 24.4307 6.20131C24.7722 6.3722 25.0534 6.6082 25.2743 6.90931L27.723 10.1583C27.9419 10.4436 28.0824 10.7483 28.1447 11.0723C28.2071 11.3961 28.2093 11.7299 28.1513 12.0736L27.3027 16.3146C27.2444 16.6 27.1035 16.832 26.88 17.0106C26.6564 17.1893 26.4024 17.2786 26.118 17.2786H25.0127C25.0127 18.2958 24.6563 19.1611 23.9437 19.8746C23.231 20.5884 22.3657 20.9453 21.3477 20.9453C20.3297 20.9453 19.4638 20.5889 18.75 19.876C18.0364 19.1629 17.6797 18.2971 17.6797 17.2786H11.8333C11.8333 18.2958 11.477 19.1611 10.7643 19.8746C10.0517 20.5884 9.18632 20.9453 8.16832 20.9453ZM19.7077 12.4453H26.0257L26.2103 11.5016L23.5513 7.94531H20.7563L19.7077 12.4453ZM17.2027 14.494L17.3977 13.624C17.5274 13.044 17.6923 12.334 17.8923 11.494C17.9761 11.1453 18.0534 10.8231 18.1243 10.5273C18.1952 10.2315 18.2529 9.96576 18.2973 9.72998L18.4923 8.85998C18.6223 8.27998 18.7873 7.56998 18.9873 6.72998C19.1871 5.88998 19.352 5.17998 19.482 4.59998L19.677 3.72998L19.872 2.94531L17.0077 15.2786L17.2027 14.494ZM1.19232 12.494C0.912544 12.494 0.6781 12.3981 0.488989 12.2063C0.299878 12.0145 0.205322 11.777 0.205322 11.4936C0.205322 11.2101 0.3011 10.9726 0.492656 10.7813C0.684211 10.5898 0.921656 10.494 1.20499 10.494H5.85899C6.14232 10.494 6.37977 10.5899 6.57132 10.7816C6.7631 10.9734 6.85899 11.2111 6.85899 11.4946C6.85899 11.778 6.7631 12.0154 6.57132 12.207C6.37977 12.3983 6.14232 12.494 5.85899 12.494H1.19232ZM3.85899 7.72998C3.57566 7.72998 3.33821 7.63409 3.14666 7.44231C2.95488 7.25053 2.85899 7.01298 2.85899 6.72965C2.85899 6.44609 2.95488 6.20854 3.14666 6.01698C3.33821 5.82565 3.57566 5.72998 3.85899 5.72998H9.85899C10.1423 5.72998 10.3798 5.82587 10.5713 6.01765C10.7631 6.20942 10.859 6.44698 10.859 6.73031C10.859 7.01387 10.7631 7.25131 10.5713 7.44265C10.3798 7.6342 10.1423 7.72998 9.85899 7.72998H3.85899ZM8.16666 18.9453C8.62999 18.9453 9.02355 18.7833 9.34732 18.4593C9.67132 18.1355 9.83332 17.742 9.83332 17.2786C9.83332 16.8153 9.67132 16.4218 9.34732 16.098C9.02355 15.774 8.62999 15.612 8.16666 15.612C7.70332 15.612 7.30977 15.774 6.98599 16.098C6.66199 16.4218 6.49999 16.8153 6.49999 17.2786C6.49999 17.742 6.66199 18.1355 6.98599 18.4593C7.30977 18.7833 7.70332 18.9453 8.16666 18.9453ZM21.3463 18.9453C21.8094 18.9453 22.203 18.7833 22.527 18.4593C22.851 18.1355 23.013 17.742 23.013 17.2786C23.013 16.8153 22.851 16.4218 22.527 16.098C22.203 15.774 21.8094 15.612 21.3463 15.612C20.883 15.612 20.4893 15.774 20.1653 16.098C19.8413 16.4218 19.6793 16.8153 19.6793 17.2786C19.6793 17.742 19.8413 18.1355 20.1653 18.4593C20.4893 18.7833 20.883 18.9453 21.3463 18.9453Z"
+												fill="#690E19"
+											/>
+										</svg>
+									</div>
+									<h4
+										class="mb-2.5 text-black text-center md:text-left font-medium transition-colors duration-300"
+										style="font-weight: bold"
+										data-translate-key="Deliver within 72h"
+									>
+										Giao hàng trong 72h
+									</h4>
+									<p
+										class="text-white/50 text-sm text-center font-medium text1"
+										style="font-size: 12px; color: #333"
+										data-translate-key="Deliver within 72h cont"
+									></p>
+								</div>
+								<div
+									class="relative basis-full lg:basis-7/12 flex flex-col p-5 md:p-10 rounded-2xl transition-colors duration-300 z-[1]"
+									style="
+										align-items: center;
+										padding: 10px 1.25rem;
+									"
+								>
+									<div
+										style="
+											background-color: #fdf4f4;
+											border-radius: 50%;
+											padding: 18px;
+											width: 64px;
+											margin-bottom: 10px;
+										"
+									>
+										<svg
+											width="26"
+											height="26"
+											viewBox="0 0 27 26"
+											fill="none"
+											xmlns="http://www.w3.org/2000/svg"
+										>
+											<path
+												d="M12.1 14.3661L9.93604 12.2224C9.75137 12.0378 9.5227 11.9433 9.25004 11.9391C8.97737 11.9349 8.73759 12.0361 8.5307 12.2428C8.33759 12.4361 8.24104 12.6703 8.24104 12.9454C8.24104 13.2205 8.33759 13.4548 8.5307 13.6481L11.2564 16.3738C11.4975 16.6147 11.7787 16.7351 12.1 16.7351C12.4214 16.7351 12.7026 16.6147 12.9437 16.3738L18.4694 10.8481C18.6676 10.6497 18.7654 10.4175 18.7627 10.1518C18.7603 9.88599 18.6625 9.64965 18.4694 9.44276C18.2625 9.2361 18.0248 9.12932 17.7564 9.12243C17.4881 9.11554 17.2506 9.21554 17.0437 9.42243L12.1 14.3661ZM8.71304 25.1891L6.86937 22.0891L3.38204 21.3401C3.08293 21.2821 2.84404 21.1249 2.66537 20.8684C2.4867 20.612 2.41537 20.3342 2.45137 20.0351L2.79237 16.4481L0.420704 13.7351C0.215593 13.5164 0.113037 13.2532 0.113037 12.9454C0.113037 12.6377 0.215593 12.3744 0.420704 12.1558L2.79237 9.44276L2.45137 5.85577C2.41537 5.55665 2.4867 5.27888 2.66537 5.02243C2.84404 4.76599 3.08293 4.60876 3.38204 4.55076L6.86937 3.80177L8.71304 0.701765C8.8737 0.438654 9.09248 0.259209 9.36937 0.163431C9.64626 0.0676533 9.92748 0.0822088 10.213 0.207098L13.5 1.59676L16.787 0.207098C17.0726 0.0822088 17.3538 0.0676533 17.6307 0.163431C17.9076 0.259209 18.1264 0.438654 18.287 0.701765L20.1307 3.80177L23.618 4.55076C23.9171 4.60876 24.156 4.76599 24.3347 5.02243C24.5134 5.27888 24.5847 5.55665 24.5487 5.85577L24.2077 9.44276L26.5794 12.1558C26.7845 12.3744 26.887 12.6377 26.887 12.9454C26.887 13.2532 26.7845 13.5164 26.5794 13.7351L24.2077 16.4481L24.5487 20.0351C24.5847 20.3342 24.5134 20.612 24.3347 20.8684C24.156 21.1249 23.9171 21.2821 23.618 21.3401L20.1307 22.0891L18.287 25.1891C18.1264 25.4522 17.9076 25.6317 17.6307 25.7274C17.3538 25.8232 17.0726 25.8087 16.787 25.6838L13.5 24.2941L10.213 25.6838C9.92748 25.8087 9.64626 25.8232 9.36937 25.7274C9.09248 25.6317 8.8737 25.4522 8.71304 25.1891ZM10.1 23.5454L13.5 22.1044L16.941 23.5454L18.8334 20.3454L22.5 19.5044L22.1667 15.7454L24.6334 12.9454L22.1667 10.1044L22.5 6.34543L18.8334 5.54543L16.9 2.34543L13.5 3.78643L10.059 2.34543L8.1667 5.54543L4.50004 6.34543L4.83337 10.1044L2.3667 12.9454L4.83337 15.7454L4.50004 19.5454L8.1667 20.3454L10.1 23.5454Z"
+												fill="#690E19"
+											/>
+										</svg>
+									</div>
+									<h4
+										class="mb-2.5 text-black text-center font-medium transition-colors duration-300"
+										style="font-weight: bold"
+										data-translate-key="100% authentic products"
+									>
+										Hàng chính hãng 100%
+									</h4>
+									<p
+										class="text-white/50 text-sm text-center font-medium text1"
+										style="font-size: 12px; color: #333"
+										data-translate-key="100% authentic products cont"
+									></p>
+								</div>
+								<div
+									class="relative basis-full lg:basis-7/12 flex flex-col p-5 md:p-10 rounded-2xl transition-colors duration-300 z-[1]"
+									style="
+										align-items: center;
+										padding: 10px 1.25rem;
+									"
+								>
+									<div
+										style="
+											background-color: #fdf4f4;
+											border-radius: 50%;
+											padding: 18px;
+											width: 64px;
+											margin-bottom: 10px;
+										"
+									>
+										<svg
+											width="26"
+											height="26"
+											viewBox="0 0 21 26"
+											fill="none"
+											xmlns="http://www.w3.org/2000/svg"
+										>
+											<path
+												d="M2.91033 25.6667C2.23678 25.6667 1.66667 25.4334 1.2 24.9667C0.733333 24.5 0.5 23.9299 0.5 23.2564V8.07704C0.5 7.40349 0.733333 6.83337 1.2 6.36671C1.66667 5.90004 2.23678 5.66671 2.91033 5.66671H5.5V5.33337C5.5 3.95226 5.988 2.7736 6.964 1.79737C7.94022 0.821373 9.11889 0.333374 10.5 0.333374C11.8811 0.333374 13.0598 0.821373 14.036 1.79737C15.012 2.7736 15.5 3.95226 15.5 5.33337V5.66671H18.0897C18.7632 5.66671 19.3333 5.90004 19.8 6.36671C20.2667 6.83337 20.5 7.40349 20.5 8.07704V23.2564C20.5 23.9299 20.2667 24.5 19.8 24.9667C19.3333 25.4334 18.7632 25.6667 18.0897 25.6667H2.91033ZM2.91033 23.6667H18.0897C18.1923 23.6667 18.2863 23.6239 18.3717 23.5384C18.4572 23.453 18.5 23.359 18.5 23.2564V8.07704C18.5 7.97437 18.4572 7.88037 18.3717 7.79504C18.2863 7.70948 18.1923 7.66671 18.0897 7.66671H15.5V10.6667C15.5 10.9505 15.4042 11.188 15.2127 11.3794C15.0213 11.5709 14.7838 11.6667 14.5 11.6667C14.2162 11.6667 13.9787 11.5709 13.7873 11.3794C13.5958 11.188 13.5 10.9505 13.5 10.6667V7.66671H7.5V10.6667C7.5 10.9505 7.40422 11.188 7.21267 11.3794C7.02133 11.5709 6.78378 11.6667 6.5 11.6667C6.21622 11.6667 5.97867 11.5709 5.78733 11.3794C5.59578 11.188 5.5 10.9505 5.5 10.6667V7.66671H2.91033C2.80767 7.66671 2.71367 7.70948 2.62833 7.79504C2.54278 7.88037 2.5 7.97437 2.5 8.07704V23.2564C2.5 23.359 2.54278 23.453 2.62833 23.5384C2.71367 23.6239 2.80767 23.6667 2.91033 23.6667ZM7.5 5.66671H13.5V5.33337C13.5 4.4976 13.209 3.7886 12.627 3.20637C12.045 2.62437 11.336 2.33337 10.5 2.33337C9.664 2.33337 8.955 2.62437 8.373 3.20637C7.791 3.7886 7.5 4.4976 7.5 5.33337V5.66671Z"
+												fill="#690E19"
+											/>
+										</svg>
+									</div>
+									<h4
+										class="mb-2.5 text-black text-center font-medium transition-colors duration-300"
+										style="font-weight: bold"
+										data-translate-key="Exchange unwanted items"
+									>
+										Đổi sản phẩm bạn không muốn
+									</h4>
+									<p
+										class="text-white/50 text-sm text-center font-medium text1"
+										style="font-size: 12px; color: #333"
+										data-translate-key="Exchange unwanted items cont"
+									></p>
+								</div>
+								<!-- 底部人数 -->
+								<div
+									class="flex lg:gap-5 lg:basis-5/12"
+									style="
+										box-shadow: 0 5px 5px rgba(0, 0, 0, 0.1),
+											0px 0 1px rgba(0, 0, 0, 0.1);
+										background-color: #fdf4f4;
+										border-radius: 10px;
+										width: 90%;
+										margin: 0 auto 0 auto;
+										padding: 15px 0px;
+										box-sizing: border-box;
+									"
+								>
+									<div
+										class="relative basis-1/2 flex flex-col sm:flex-row justify-start items-start sm:items-center md:p-10 lg:p-5 rounded-2xl transition-colors duration-300 z-[1]"
+										style="
+											padding: 3px 2rem;
+											width: 49%;
+											box-sizing: border-box;
+										"
+									>
+										<svg
+											width="18"
+											height="18"
+											viewBox="0 0 20 17"
+											fill="none"
+											xmlns="http://www.w3.org/2000/svg"
+										>
+											<path
+												d="M2.5 14.6376V4.54532L0.950002 1.16657C0.865336 0.980568 0.860252 0.788902 0.934752 0.591568C1.00909 0.394068 1.13917 0.253069 1.325 0.168569C1.51084 0.0839021 1.7025 0.0761523 1.9 0.145319C2.0975 0.214652 2.2385 0.342236 2.323 0.528069L4.14225 4.49532H15.8578L17.677 0.528069C17.7615 0.342236 17.9025 0.212069 18.1 0.137569C18.2975 0.0632357 18.4892 0.0735688 18.675 0.168569C18.8608 0.253069 18.9909 0.394068 19.0653 0.591568C19.1398 0.788902 19.1347 0.980568 19.05 1.16657L17.5 4.54532V14.6376C17.5 15.1362 17.3234 15.5622 16.9703 15.9156C16.6169 16.2687 16.1909 16.4453 15.6923 16.4453H4.30775C3.80909 16.4453 3.38309 16.2687 3.02975 15.9156C2.67659 15.5622 2.5 15.1362 2.5 14.6376ZM8 9.69532H12C12.2128 9.69532 12.391 9.62348 12.5345 9.47982C12.6782 9.33632 12.75 9.15815 12.75 8.94532C12.75 8.73248 12.6782 8.55432 12.5345 8.41082C12.391 8.26715 12.2128 8.19532 12 8.19532H8C7.78717 8.19532 7.609 8.26715 7.4655 8.41082C7.32184 8.55432 7.25 8.73248 7.25 8.94532C7.25 9.15815 7.32184 9.33632 7.4655 9.47982C7.609 9.62348 7.78717 9.69532 8 9.69532ZM4.30775 14.9453H15.6923C15.7821 14.9453 15.8558 14.9165 15.9135 14.8588C15.9712 14.8012 16 14.7274 16 14.6376V5.99532H4V14.6376C4 14.7274 4.02884 14.8012 4.0865 14.8588C4.14417 14.9165 4.21792 14.9453 4.30775 14.9453Z"
+												fill="#7C1820"
+											/>
+										</svg>
+										<div
+											class="sm:mt-2 sm:ml-3"
+											style="color: #74171e"
+										>
+											<div
+												class="text-xl font-medium transition-colors duration-300"
+												id="boxText"
+												style="
+													font-size: 15px;
+													font-weight: 600;
+													padding: 3px 0;
+												"
+											></div>
+											<p
+												class="text-xs uppercase"
+												data-translate-key="Opened Boxes"
+											>
+												HỘP ĐÃ MỞ
+											</p>
+										</div>
+									</div>
+									<div
+										class="line"
+										style="
+											width: 1px;
+											background-color: #74171e;
+											height: 100%;
+										"
+									></div>
+									<div
+										class="relative basis-1/2 flex flex-col sm:flex-row justify-start items-start sm:items-center md:p-10 lg:p-5 rounded-2xl transition-colors duration-300 z-[1]"
+										style="
+											padding: 2px 2rem;
+											width: 49%;
+											box-sizing: border-box;
+										"
+									>
+										<svg
+											width="18"
+											height="18"
+											viewBox="0 0 21 16"
+											fill="none"
+											xmlns="http://www.w3.org/2000/svg"
+										>
+											<path
+												d="M0.298279 13.0297C0.298279 12.5144 0.431279 12.0545 0.697279 11.65C0.963279 11.2455 1.31853 10.9308 1.76303 10.706C2.71336 10.2411 3.66895 9.8827 4.62978 9.6307C5.59078 9.37887 6.64686 9.25295 7.79803 9.25295C8.94936 9.25295 10.0054 9.37887 10.9663 9.6307C11.9273 9.8827 12.8829 10.2411 13.8333 10.706C14.2778 10.9308 14.633 11.2455 14.899 11.65C15.165 12.0545 15.298 12.5144 15.298 13.0297V13.7337C15.298 14.1362 15.1503 14.49 14.8548 14.7952C14.5593 15.1004 14.2006 15.253 13.7788 15.253H1.81728C1.39561 15.253 1.03703 15.1052 0.741529 14.8097C0.446029 14.514 0.298279 14.1554 0.298279 13.7337V13.0297ZM19.1828 15.253H16.9115C17.0372 15.0235 17.133 14.7792 17.199 14.5202C17.265 14.2612 17.298 13.999 17.298 13.7337V12.9067C17.298 12.2504 17.1374 11.6248 16.816 11.03C16.4945 10.4353 16.0385 9.92504 15.448 9.4992C16.1185 9.5992 16.7551 9.75395 17.3578 9.96345C17.9603 10.1731 18.5353 10.4209 19.0828 10.7067C19.5994 10.9824 19.9984 11.3073 20.2798 11.6815C20.5611 12.0555 20.7018 12.4639 20.7018 12.9067V13.7337C20.7018 14.1554 20.554 14.514 20.2585 14.8097C19.963 15.1052 19.6044 15.253 19.1828 15.253ZM7.79803 7.63745C6.83553 7.63745 6.01161 7.29478 5.32628 6.60945C4.64095 5.92395 4.29828 5.09995 4.29828 4.13745C4.29828 3.17495 4.64095 2.35103 5.32628 1.6657C6.01161 0.980201 6.83553 0.637451 7.79803 0.637451C8.76053 0.637451 9.58453 0.980201 10.27 1.6657C10.9554 2.35103 11.298 3.17495 11.298 4.13745C11.298 5.09995 10.9554 5.92395 10.27 6.60945C9.58453 7.29478 8.76053 7.63745 7.79803 7.63745ZM16.4325 4.13745C16.4325 5.09995 16.0899 5.92395 15.4045 6.60945C14.7192 7.29478 13.8953 7.63745 12.9328 7.63745C12.8199 7.63745 12.6764 7.62462 12.502 7.59895C12.3275 7.57328 12.1839 7.54512 12.0713 7.51445C12.4656 7.04028 12.7687 6.51429 12.9805 5.93645C13.1922 5.35862 13.298 4.75862 13.298 4.13645C13.298 3.51412 13.19 2.91637 12.974 2.3432C12.758 1.7702 12.4571 1.2427 12.0713 0.760701C12.2148 0.709368 12.3584 0.676034 12.502 0.660701C12.6455 0.645201 12.7891 0.637451 12.9328 0.637451C13.8953 0.637451 14.7192 0.980201 15.4045 1.6657C16.0899 2.35103 16.4325 3.17495 16.4325 4.13745ZM1.79803 13.753H13.798V13.0297C13.798 12.8209 13.7458 12.635 13.6413 12.4722C13.5369 12.3094 13.3713 12.167 13.1443 12.0452C12.3213 11.6209 11.4739 11.2994 10.602 11.0807C9.7302 10.8622 8.79553 10.753 7.79803 10.753C6.8007 10.753 5.86611 10.8622 4.99428 11.0807C4.12245 11.2994 3.27503 11.6209 2.45203 12.0452C2.22503 12.167 2.05928 12.3094 1.95478 12.4722C1.85028 12.635 1.79803 12.8209 1.79803 13.0297V13.753ZM7.79803 6.13745C8.34803 6.13745 8.81886 5.94162 9.21053 5.54995C9.6022 5.15828 9.79803 4.68745 9.79803 4.13745C9.79803 3.58745 9.6022 3.11662 9.21053 2.72495C8.81886 2.33328 8.34803 2.13745 7.79803 2.13745C7.24803 2.13745 6.7772 2.33328 6.38553 2.72495C5.99386 3.11662 5.79803 3.58745 5.79803 4.13745C5.79803 4.68745 5.99386 5.15828 6.38553 5.54995C6.7772 5.94162 7.24803 6.13745 7.79803 6.13745Z"
+												fill="#690E19"
+											/>
+										</svg>
+										<div
+											class="sm:mt-2 sm:ml-3"
+											style="color: #74171e"
+										>
+											<div
+												class="text-xl font-medium transition-colors duration-300"
+												id="userText"
+												style="
+													font-size: 15px;
+													font-weight: 600;
+													padding: 3px 0;
+												"
+											></div>
+											<p
+												class="text-xs uppercase"
+												data-translate-key="Members"
+											>
+												THÀNH VIÊN
+											</p>
+										</div>
+									</div>
+								</div>
+							</div>
+						</div>
+						<div class="layout__footer" style="margin-bottom: 80px">
+							<footer
+								style="
+									background-color: #74171e;
+									padding: 40px 0 0 0;
+									display: flex;
+									flex-direction: column;
+									align-items: center;
+								"
+							>
+								<ul
+									class="flex flex-wrap justify-center gap-4"
+									id="zimeiti"
+								></ul>
+								<div
+									class="logo"
+									style="height: 32px; margin: 30px 0 0 0"
+								>
+									<img
+										src="image/index/Logo.png"
+										style="height: 100%"
+									/>
+								</div>
+								<nav class="mt-10" style="padding-bottom: 45px">
+									<ul
+										class="flex flex-wrap justify-center gap-5"
+										style="
+											flex-direction: column;
+											align-items: center;
+										"
+									>
+										<li>
+											<a
+												href="contacts.html"
+												class="text-xs font-medium text-white/50"
+												style="color: #fff"
+											>
+												<span
+													data-translate-key="Hotline"
+													>Liên hệ với chúng tôi</span
+												>
+												<span id="rexian"></span
+											></a>
+										</li>
+
+										<!-- 隐私声明 -->
+										<li>
+											<a
+												href="privacystatement.html"
+												class="text-xs font-medium text-white/50"
+												style="color: #fff"
+												data-translate-key="Privacy Policy"
+												>Chính sách quyền riêng tư</a
+											>
+										</li>
+										<!-- 服务条款 -->
+										<li>
+											<a
+												href="termsofservice.html"
+												class="text-xs font-medium text-white/50"
+												style="color: #fff"
+												data-translate-key="Terms of Service"
+												>Điều khoản sử dụng</a
+											>
+										</li>
+										<!-- 平台规则 -->
+										<li>
+											<a
+												href="provablyfair.html"
+												class="text-xs font-medium text-white/50"
+												style="color: #fff"
+												data-translate-key="Shipping & Return Policy"
+												>Chính sách vận chuyển & đổi
+												trả</a
+											>
+										</li>
+										<!-- 常见问题解答 -->
+										<li>
+											<acommon
+												href="./faq.html"
+												class="text-xs font-medium text-white/50"
+												style="color: #fff"
+												data-translate-key="FAQ"
+												>Câu hỏi thường gặp</acommon
+											>
+										</li>
+									</ul>
+								</nav>
+								<div
+									class="info"
+									style="
+										padding: 45px 0;
+										border-top: 1px solid #fff;
+										width: 100%;
+										display: flex;
+										justify-content: center;
+									"
+								>
+									<span style="color: #fff; font-size: 14px"
+										>@2025 xexe commerce Co.Ltd. All rights
+										reserved</span
+									>
+								</div>
+							</footer>
+						</div>
+					</div>
+				</div>
+
+				<!-- 底部tabbar -->
+				<div class=""></div>
+				<div
+					data-v-b1df64fc=""
+					class="flex fixed bottom-0 w-full bg-[#620D18] py-2.5 px-2 pb-4 z-10"
+					style="
+						padding-bottom: 1.3rem;
+						padding-top: 1rem;
+						z-index: 22;
+						width: min(100%, 428px);
+					"
+				>
+					<div
+						data-v-b1df64fc=""
+						class="flex w-full"
+						id="tobar"
+					></div>
+				</div>
+			</div>
+		</div>
+		<!-- 去顶部 -->
+		<div
+			data-v-df364c00=""
+			data-v-2d0daec7=""
+			class="back-top"
+			style="left: calc(50% - 24px)"
+		>
+			<img
+				src="image/common/top.svg"
+				alt=""
+				style="width: 20px; margin: 0 auto"
+			/>
+			<div data-v-df364c00="">TOP</div>
+		</div>
+	</body>
+	<!-- Google Tag Manager (noscript) -->
+	<noscript
+		><iframe
+			src="https://www.googletagmanager.com/ns.html?id=GTM-P6BMJ9FB"
+			height="0"
+			width="0"
+			style="display: none; visibility: hidden"
+		></iframe
+	></noscript>
+	<!-- End Google Tag Manager (noscript) -->
+	<!-- Google Tag Manager (noscript) -->
+	<noscript
+		><iframe
+			src="https://www.googletagmanager.com/ns.html?id=GTM-TXPDDBNT"
+			height="0"
+			width="0"
+			style="display: none; visibility: hidden"
+		></iframe
+	></noscript>
+
+	<!-- End Google Tag Manager (noscript) -->
+	<style>
+		.back-top {
+			position: fixed;
+			height: min(11.733vw, 50.219px);
+			width: min(11.733vw, 50.219px);
+			bottom: min(30.933vw, 118.155px);
+			z-index: 999;
+			background: rgba(34, 35, 51, 0.9);
+			border-radius: min(1.067vw, 4.565px);
+			text-align: center;
+			font-family: DIN-Medium;
+			font-size: min(2.933vw, 12.555px);
+			color: #fff;
+			font-weight: 500;
+			display: none;
+			/* 初始状态为隐藏 */
+		}
+
+		body {
+			font-family: Arial, sans-serif;
+			margin: 0;
+			padding: 0;
+			background-color: #f8f8f8;
+		}
+
+		/* 分类商品 */
+		.product-container {
+			display: flex;
+			flex-wrap: wrap;
+			justify-content: center;
+			/* gap: 20px; */
+			padding: 20px 0;
+		}
+
+		.product-card {
+			background-color: #fdf4f4;
+			background-image: url("image/index/card.png");
+			/*background-image: url("/image/index/categoryGoodsbgimg.png");*/
+			/* 替换为实际的图片路径 */
+			background-repeat: no-repeat;
+			background-size: 100% 100%;
+			background-position: center;
+			border-radius: 10px;
+			display: flex;
+			width: 100%;
+			min-height: 230px;
+			margin: 10px 0;
+			padding: 30px 15px;
+			box-sizing: border-box;
+			position: relative;
+		}
+		.product-card-recommend {
+			background-color: #fdf4f4;
+			background-image: url("image/index/card_recommend.png");
+			/*background-image: url("/image/index/indexSwipergoodsbgimg.png");*/
+			/* 替换为实际的图片路径 */
+			background-repeat: no-repeat;
+			background-size: 100% 100%;
+			background-position: center;
+			border-radius: 10px;
+			display: flex;
+			/*min-height: 280px;*/
+			margin: 15px;
+			padding: 34px 25px;
+			box-sizing: border-box;
+			position: relative;
+			box-shadow: 0px 0px 16px 0px rgb(255 143 90);
+		}
+		.hot-tag-recommend {
+			position: absolute;
+			top: 0;
+			/*top: 10px;*/
+			right: 150px;
+		}
+
+		.hot-tag {
+			position: absolute;
+			top: 4px;
+			/*top: 15px;*/
+			right: 20px;
+			/*right: 150px;*/
+		}
+
+		.product-image {
+			width: 120px;
+			height: 120px;
+		}
+
+		.details {
+			display: flex;
+			flex-direction: column;
+			margin-left: 20px;
+			width: 200px;
+		}
+
+		.details h2 {
+			font-weight: bold;
+		}
+
+		.tags img {
+			width: 50px;
+			margin-bottom: 10px;
+		}
+
+		.img-list {
+			display: flex;
+			align-items: center;
+			justify-content: space-between;
+			margin: 10px 0 0 0;
+		}
+
+		.img-list img {
+			border-radius: 10px;
+			box-sizing: border-box;
+		}
+
+		.price-container {
+			display: flex;
+			align-items: baseline;
+			margin: 0 0 5px 0;
+		}
+
+		.current-price {
+			font-size: 13px;
+			font-weight: bold;
+			color: #74171e;
+		}
+
+		.original-price {
+			text-decoration: line-through;
+			color: #999;
+			margin-left: 10px;
+			font-size: 11px;
+		}
+
+		.purchased {
+			color: #000;
+			margin-bottom: 10px;
+			font-size: 12px;
+			background-color: transparent;
+		}
+
+		.buy-now {
+			background-color: #74171e;
+			color: white;
+			border: none;
+			border-radius: 5px;
+			padding: 5px 20px;
+			font-size: 14px;
+			font-weight: bold;
+			cursor: pointer;
+			width: 100%;
+			transition: background-color 0.3s, box-shadow 0.3s;
+			/* 添加过渡效果 */
+			box-shadow: 0 4px 8px #74171e;
+			/* 添加阴影效果 */
+		}
+
+		.buy-now:hover {
+			background-color: #ff6b6b;
+			color: #333;
+		}
+
+		/* 闪抽盲盒 */
+		#falshList {
+			display: flex;
+			flex-direction: row;
+			justify-content: space-between;
+			margin-top: 10px;
+		}
+
+		.falsh-box {
+			width: 48%;
+			display: flex;
+			flex-direction: column;
+		}
+
+		.product-img {
+			background-color: #fdf4f4;
+			border-radius: 10px;
+			padding: 10px;
+			box-sizing: border-box;
+			display: flex;
+			flex-direction: column;
+			align-items: center;
+			justify-content: space-between;
+			height: 197px;
+		}
+
+		.product-img .logo {
+			width: 73%;
+			height: auto;
+		}
+
+		.product-img .img-list {
+			margin-top: 10px;
+			width: 100%;
+			display: flex;
+			justify-content: space-between;
+		}
+
+		.img-list img {
+			width: 25%;
+			background-color: #fff;
+			border-radius: 5px;
+			padding: 6px;
+			box-sizing: border-box;
+		}
+
+		.title-box {
+			background-color: transparent;
+			margin: 5px 0;
+			font-size: 14px;
+			font-weight: 600;
+			white-space: nowrap;
+			/* 禁止文本换行 */
+			overflow: hidden;
+			/* 隐藏超出部分 */
+			text-overflow: ellipsis;
+			/* 超出部分显示省略号 */
+			width: 100%;
+			/* 或者指定一个固定宽度，根据需要调整 */
+			display: block;
+			/* 确保元素为块级元素 */
+		}
+
+		.price-box {
+			background-color: #fdf4f4;
+			border-radius: 5px;
+			position: relative;
+			display: flex;
+			flex-direction: column;
+			padding: 2px 10px;
+			box-sizing: border-box;
+			font-size: 13px;
+			height: 40px;
+		}
+
+		.price-box .original-price {
+			margin-left: 0;
+			margin-top: 0;
+		}
+
+		.sale-box {
+			width: 48px;
+			height: 120%;
+			background-image: url("image/index/sale.png");
+			display: flex;
+			align-items: center;
+			justify-content: center;
+			background-position: center;
+			background-size: 100% 100%;
+			background-repeat: no-repeat;
+			position: absolute;
+			right: 0;
+			top: -5px;
+			bottom: auto;
+		}
+
+		.progress {
+			margin-top: -5px;
+			font-size: 10px;
+			color: #fff;
+			font-weight: bold;
+		}
+
+		.progress-bar-container {
+			background-color: #f9cdd2;
+			border-radius: 30px;
+			height: 14px;
+			width: 100%;
+			margin-top: 8px;
+			position: relative;
+		}
+
+		.progress-text {
+			position: absolute;
+			color: #fff;
+			font-size: 10px;
+			left: 40;
+			right: 0;
+			top: 0;
+		}
+
+		.progress-bar {
+			background-color: #d63831;
+			border-radius: 30px;
+			height: 14px;
+			color: #fff;
+			font-size: 12px;
+			display: flex;
+			align-items: center;
+			justify-content: space-between;
+			padding-left: 10px;
+			box-sizing: border-box;
+		}
+	</style>
+	<script>
+
+		    const currentPath = window.location.pathname;
+		    localStorage.setItem("currentPath", currentPath)
+		    var token = localStorage.getItem("token")
+		    var img_path = "";
+		    if(localStorage.getItem("img_path")){
+		        img_path = localStorage.getItem("img_path");
+		    } else {
+		        img_path = window.Domain + 'upload/'
+		    }
+		    function formatImg(img){
+		        if (!img) return;
+		        // 如果https://开头，则返回原图片
+		        if (img.startsWith('https://')) {
+		            return img;
+		        }
+		        return img_path + img;
+		    }
+
+		    if( token){
+		        sendRequest(
+		            "POST",
+		            APIURL + "/api/User/getMember",
+		            {}, // 请求数据为空对象
+		            {
+		                'token': token // 将 token 放入 headers 中
+		            },
+		            function (data) {
+		                var userInfo = {
+		                    nickname: data.data.nickname || data.data.id,
+		                    headimg: data.data.headimg?formatImg(data.data.headimg): "",
+		                    mid: data.data.id,
+		                }
+		                localStorage.setItem("userprofile", JSON.stringify(userInfo));
+		            },
+		            function (xhr, status, error) {
+		                // 错误回调
+		                console.error('请求失败:', error);
+		            }
+		        );
+		    }
+		    sendRequest(
+		        "POST",
+		        APIURL + "/api/blog/new_notice_total",
+		        JSON.stringify({}),
+		        token?{
+		            token: token, // 将 token 放入 Authorization 头中
+		        }:null,
+		        function (res) {
+		            if(res.data.total){
+		                $("#new_notice").show();
+		                $("#notice").hide();
+		            } else {
+		                $("#new_notice").hide();
+		                $("#notice").show();
+		            }
+		        },
+		        function (xhr, status, error) {
+		            console.error(error);
+		        }
+		    );
+		    // 在页面加载时更新缓存
+		    window.addEventListener('load', () => {
+		        // updateCache();
+		    });
+		    document.addEventListener('DOMContentLoaded', function () {
+		        const backTopButton = document.querySelector('.back-top');
+
+		        // 监听页面滚动事件
+		        window.addEventListener('scroll', function () {
+		            if (window.scrollY > 100) {
+		                // 如果页面滚动超过 100px，显示 back-top 按钮
+		                backTopButton.style.display = 'block';
+		            } else {
+		                // 否则隐藏 back-top 按钮
+		                backTopButton.style.display = 'none';
+		            }
+		        });
+
+		        // 点击 back-top 按钮时，滚动到页面顶部
+		        backTopButton.addEventListener('click', function () {
+		            window.scrollTo({
+		                top: 0,
+		                behavior: 'smooth' // 平滑滚动
+		            });
+
+
+		            // 滚动到顶部后隐藏按钮
+		            setTimeout(() => {
+		                backTopButton.style.display = 'none';
+		            }, 500); // 延迟 500ms 隐藏，确保滚动完成
+		        });
+		    });
+		    // 获取开盒总数和人数
+		    sendRequest(
+		        "POST",
+		        APIURL + "/api/user/openAndPerCount",
+		        {},//data
+		        null,
+
+		        function (data) {
+		            let  box_open_total=data.data.box_open_total+81934;
+		            let  user_total=data.data.user_total+15005;
+		            // console.log('---开盒人数---', data)
+		            $("#userText").text(user_total + ' +')
+		            $("#boxText").text('>' + ' ' +box_open_total)
+		        },
+		        function (xhr, status, error) {
+
+		        }
+		    );
+
+		    // 获取首页弹幕
+		    function fetchBarrage() {
+		        window.scrollTo(0, 0); // 确保页面加载时滚动到顶部
+
+		        sendRequest(
+		            "POST",
+		            APIURL + "/api/Login/get_danmu",
+		            {}, // data
+		            null,
+		            function (data) {
+
+		                if(data.code == 200){
+		                    if(data.data.mh_indeximageonoff == 1){
+		                        try {
+		                            setTimeout(function() {
+		                                new PopupAd({
+		                                    backgroundImage: _t('mh_indexbgimage',data.data),
+		                                    qrCodeImage: data.data.mh_indeximage,
+		                                    showClose: true,
+		                                    delay: 0,
+		                                    useLocalStorage: true
+		                                });
+		                            }, 1000);
+		                        }catch (e){
+
+		                        }
+		                    }
+		                }
+		                // console.log('弹幕', data.data);
+		                localStorage.setItem('ClientIP',data.data.ip||'');
+		                const barrageList = document.querySelector('.barrage-list');
+		                barrageList.innerHTML = ''; // 清空当前内容
+
+		                // 遍历弹幕列表，动态插入弹幕内容
+		                 var langContent = langCode == 'zh' && data.data.content_zh?data.data.content_zh:langCode == 'en' && data.data.content_en?data.data.content_en:data.data.content;
+		                langContent.forEach(item => {
+		                    const barrageItem = document.createElement('div');
+		                    barrageItem.classList.add('barrage-item');
+		                    barrageItem.textContent = item.content + '🎉'; // 弹幕内容
+		                    barrageList.appendChild(barrageItem);
+		                });
+
+		                // 启动滚动动画
+		                startBarrageAnimation();
+		            },
+		            function (xhr, status, error) {
+		                // 错误回调
+		                console.error('获取弹幕失败:', error);
+		            }
+		        );
+		    }
+
+		    // 启动弹幕滚动动画
+		    function startBarrageAnimation() {
+		        const barrageList = document.querySelector('.barrage-list');
+		        const container = document.querySelector('.barrage-container');
+		        const containerWidth = container.clientWidth; // 容器宽度
+		        const listWidth = barrageList.scrollWidth; // 弹幕内容的总宽度
+		        const speed = 30; // 滚动速度（每秒滚动的像素数）
+		        const duration = (listWidth + containerWidth) / speed; // 动画时长
+		        // 设置动画
+		        barrageList.style.animation = `scrollLeft ${duration}s linear forwards`;
+		        // 在动画完成后重新开始滚动
+		        setTimeout(() => {
+		            startBarrageAnimation(); // 重新开始滚动
+		        }, duration * 1000);
+		    }
+
+		    // 初始化弹幕
+		    fetchBarrage();
+		    var allGoodsList = []
+		    function fetchCategory() {
+		        sendRequest(
+		            "POST",
+		            APIURL + "/api/Login/mhListByType",
+		            {}, // data
+		            null,
+		            function (data) {
+		                allGoodsList = data.data;
+		                // console.log('盲盒分类', data.data);
+
+		                const categoryNav = document.getElementById('categoryNav');
+		                categoryNav.innerHTML = ''; // 清空当前内容
+
+		                const allCategoryItem = `
+		                <button class="category-item active" data-logo="/image/index/all.png" data-image="/image/index/all-selected.png" data-category="all" data-index="0">
+		                    <div class="icon-box">
+		                        <img class="icon" src="image/index/all.png" alt="" style="width:40px;height:40px">
+		                    </div>
+		                    <span class="name" data-translate-key="All Cat">Tất cả</span>
+		                </button>
+		            `;
+		                categoryNav.innerHTML += allCategoryItem;
+
+		                // 添加其他分类
+		                const categorys = data.data;
+		                categorys.forEach(category => {
+		                    // 根据 langCode 动态获取对应的名称字段
+		                    let categoryName;
+		                    switch (langCode) {
+		                        case "vi":
+		                            categoryName = category.vi_name || "null"; // 如果 vi_name 不存在，显示 "未知"
+		                            break;
+		                        case "en":
+		                            categoryName = category.en_name || "null"; // 如果 en_name 不存在，显示 "Unknown"
+		                            break;
+		                        case "zh":
+		                            categoryName = category.zh_name || "null"; // 如果 zh_name 不存在，显示 "未知"
+		                            break;
+		                        default:
+		                            categoryName = category.vi_name || "null"; // 默认使用越南语名称
+		                            break;
+		                    }
+		                    const categoryItem = `
+		                    <button class="category-item" data-logo="${category.logo}" data-image="${category.image}" data-category="${category.vi_name}" data-index="1">
+		                        <div class="icon-box">
+		                            <img class="icon" src="https://xexeboxes.com/${category.logo}" alt="" style="width:auto;">
+		                        </div>
+		                        <span class="name">${categoryName}</span>
+		                    </button>
+		                `;
+		                    categoryNav.innerHTML += categoryItem;
+		                });
+
+		                // 初始化第一个分类的选中状态
+		                const firstCategoryItem = document.querySelector('.category-item');
+		                if (firstCategoryItem) {
+		                    firstCategoryItem.classList.add('active');
+		                    const firstCategoryImage = firstCategoryItem.getAttribute('data-image');
+		                    firstCategoryItem.querySelector('.icon').src = firstCategoryImage;
+		                    // 加载第一个分类的商品
+		                    fetchCategoryProducts("all");
+		                    translatePage(langCode);
+		                }
+		            },
+		            function (xhr, status, error) {
+		                // 错误回调
+		                console.error('获取分类失败:', error);
+		            }
+		        );
+		    }
+		    fetchCategory()
+		    // 添加点击事件监听
+		    // 添加点击事件监听（使用事件委托）
+		    document.addEventListener('DOMContentLoaded', () => {
+		        const categoryNav = document.getElementById('categoryNav'); // 获取分类导航的父容器
+
+		        categoryNav.addEventListener('click', function (event) {
+		            const target = event.target; // 获取点击的目标元素
+		            const categoryItem = target.closest('.category-item'); // 找到最近的分类按钮
+
+		            if (categoryItem) { // 如果点击的是分类按钮
+		                // 移除所有 active 类
+		                document.querySelectorAll('.category-item').forEach(button => {
+		                    // console.log('移除所有分类');
+		                    button.classList.remove('active');
+		                    // 重置图片路径
+		                    const logoSrc = button.getAttribute('data-logo');
+		                    button.querySelector('.icon').src = logoSrc;
+		                });
+
+		                // 添加 active 类到当前点击的按钮，并更新选中状态的图片路径
+		                categoryItem.classList.add('active');
+		                const imageSrc = categoryItem.getAttribute('data-image');
+		                categoryItem.querySelector('.icon').src = imageSrc;
+
+		                // 获取分类名称并加载对应的商品列表
+		                const categoryName = categoryItem.getAttribute('data-category');
+		                fetchCategoryProducts(categoryName);
+		            }
+		        });
+		    });
+		    // 分类商品获取
+		    function fetchCategoryProducts(categoryName) {
+		        const categoryList = document.getElementById('categoryList');
+		        categoryList.innerHTML = ''; // 清空当前内容
+		        if (categoryName === "all") {
+		            // 遍历所有分类的商品
+		            var all_list = [];
+		            var all_list_ids = [];
+		            allGoodsList.forEach(category => {
+		                if (category.list) {
+		                    category.list.forEach(product => {
+		                        if (all_list_ids.indexOf(product.id) == -1) {
+		                            all_list.push(product);
+		                            all_list_ids.push(product.id);
+		                        }
+		                    })
+		                }
+		            });
+
+		            all_list.forEach(product => {
+		                // 商品卡片生成逻辑
+		                const productCard = `
+		                        <a href="https://xexeboxes.com/${product.is_recomend&#32;==&#32;2&#32;?&#32;'cdkGoods.html?id='&#32;+&#32;product.id&#32;:&#32;'goods.html?id='&#32;+&#32;product.id}">
+		                            <div class="product-card" style="margin-bottom: 20px;">
+		                                ${product.label == 'HOT' ? `<div class="hot-tag"> <img src="image/index/hot.png" alt="Hot" style="width:90px;height:37px"></div>` : product.label == 'NEW' ?`<div class="hot-tag"> <img src="image/index/new.png" alt="Hot" style="width:90px;height:37px"></div>`:''}
+		                                <div class="product-image">
+		                                    <img src="https://xexeboxes.com/${product.logo}" alt="" style="width: 100%; height: auto;">
+		                                </div>
+		                                <div class="details">
+		                                    <h2>${langCode == 'zh' && product.title_zh?product.title_zh:langCode == 'en' && product.title_eng?product.title_eng:product.title}</h2>
+		                                    <div class="img-list">
+		                                        ${product.goods_img_list ? product.goods_img_list.slice(0, 5).map(item => `<img src="https://xexeboxes.com/${item.logo}" alt="" style="width:18%">`).join('') : ''}
+		                                    </div>
+		                                    <div class="price-container">
+		                                        <span class="current-price">${formatAmount(product.price)}đ</span>
+		                                        <span class="original-price">${formatAmount(product.originalPrice)}đ</span>
+		                                    </div>
+		                                   <div class="purchased">
+		                                <span data-translate-key="Sold">Đã bán</span>
+		                                <span>  ${product.sale_count}</span>
+		                                </div>
+		                                    <button class="buy-now" data-translate-key="Buy Now">MUA NGAY</button>
+		                                </div>
+		                            </div>
+		                        </a>
+		                    `;
+		                categoryList.innerHTML += productCard;
+		            });
+		        } else {
+		            // 找到对应的分类
+		            const category = allGoodsList.find(cat => cat.vi_name == categoryName);
+		            if (category && category.list) {
+		                const products = category.list;
+
+		                products.forEach(product => {
+		                    // 假设 product.detailImages 是一个包含5个图片URL的数组
+		                    let detailImagesHTML = '';
+		                    if (product.goods_img_list) {
+		                        product.goods_img_list.slice(0, 5).forEach(item => {
+		                            detailImagesHTML += `<img src="https://xexeboxes.com/${item.logo}" alt="" style="width:18%">`;
+		                        });
+		                    }
+
+
+		                    const productCard = `
+		                             <a href="https://xexeboxes.com/${product.is_recomend&#32;==&#32;2&#32;?&#32;'cdkGoods.html?id='&#32;+&#32;product.id&#32;:&#32;'goods.html?id='&#32;+&#32;product.id}">
+
+		                            <div class="product-card" style="margin-bottom: 20px;">
+		                                ${product.label == 'HOT' ? '<div class="hot-tag"> <img src="image/index/newhot.svg" alt="Hot" style="width:90px;height:37px"></div>' :product.label == 'NEW' ?`<div class="hot-tag"> <img src="image/index/new.png" alt="Hot" style="width:90px;height:37px"></div>`:''}
+		                                <div class="product-image">
+		                                    <img src="https://xexeboxes.com/${product.logo}" alt="" style="width: 100%; height: auto;">
+		                                </div>
+		                                <div class="details">
+		                                    <h2>${langCode == 'zh' && product.title_zh?product.title_zh:langCode == 'en' && product.title_eng?product.title_eng:product.title}</h2>
+		                                    <div class="img-list">
+		                                      ${detailImagesHTML}
+		                                    </div>
+		                                    <div class="price-container">
+		                                        <span class="current-price">${formatAmount(product.price)}đ</span>
+		                                        <span class="original-price">${formatAmount(product.originalPrice)}đ</span>
+		                                    </div>
+		                                    <div class="purchased">
+		                                        <span data-translate-key="Sold">Đã bán</span>
+		                                        <span>  ${product.sale_count}</span>
+		                                        </div>
+		                                    <button class="buy-now" data-translate-key="Buy Now">MUA NGAY</button>
+		                                </div>
+		                            </div>
+		                        </a>
+		                    `;
+		                    categoryList.innerHTML += productCard;
+		                });
+		            } else {
+		                console.warn('分类未找到或分类中没有商品');
+		            }
+
+		            try {
+		                // 触发事件
+		                document.dispatchEvent(new CustomEvent('ViewCategory', {
+		                    detail: {
+		                        userData: {},
+		                        customData:{
+		                            "category_name": `${langCode == 'vi'?category.vi_name:langCode == 'zh'?category.zh_name:category.en_name}`,
+		                            "category_id": category.id,
+		                            "content_type": "category"
+		                        }
+		                    }
+		                }));
+		            } catch (error) {
+		                console.error('事件触发失败:', error);
+		            }
+		        }
+		        translatePage(langCode);
+
+
+		    }
+
+		    function fetchRecommend() {
+		        sendRequest(
+		            "POST",
+		            APIURL + "/api/Login/mhListByRecommend",
+		            {}, // data
+		            null,
+		            function (data) {
+		                showGoods(data.data);
+		                translatePage(langCode);
+		            },
+		            function (xhr, status, error) {
+		                // 错误回调
+		                console.error('获取分类失败:', error);
+		            }
+		        );
+		    }
+		    function showGoods(all_list) {
+		        if(all_list && all_list.length == 0){
+		            $('#RecommendBox').hide()
+		        }else {
+		            $('#RecommendBox').show()
+		        }
+		        const categoryList = document.getElementById('categoryListRecommend');
+		        categoryList.innerHTML = ''; // 清空当前内容
+
+		        all_list.forEach(product => {
+		            // 商品卡片生成逻辑
+		            const productCard = `
+						<div class="swiper-slide" >
+		                    <a href="https://xexeboxes.com/${product.is_recomend&#32;==&#32;2&#32;?&#32;'cdkGoods.html?id='&#32;+&#32;product.id&#32;:&#32;'goods.html?id='&#32;+&#32;product.id}" style="display: block">
+		                        <div class="product-card-recommend" style="margin-bottom: 20px;">
+		                            ${product.label == 'HOT' ? `<div class="hot-tag-recommend"> <img src="image/index/hot.png" alt="Hot" style="width:90px;height:37px"></div>` : product.label == 'NEW' ?`<div class="hot-tag-recommend"> <img src="image/index/new.png" alt="Hot" style="width:90px;height:37px"></div>`:''}
+		                            <div class="product-image">
+		                                <img src="https://xexeboxes.com/${product.logo}" alt="" style="width: 100%; height: auto;margin-top: 20px">
+		                            </div>
+		                            <div class="details">
+		                                <h2>${langCode == 'zh' && product.title_zh?product.title_zh:langCode == 'en' && product.title_eng?product.title_eng:product.title}</h2>
+		                                <div class="img-list">
+		                                    ${product.goods_img_list ? product.goods_img_list.slice(0, 5).map(item => `<img src="https://xexeboxes.com/${item.logo}" alt="" style="width:18%">`).join('') : ''}
+		                                </div>
+		                                <div class="price-container">
+		                                    <span class="current-price">${formatAmount(product.price)}đ</span>
+		                                    <span class="original-price">${formatAmount(product.originalPrice)}đ</span>
+		                                </div>
+		                                <div class="purchased">
+											<span data-translate-key="Sold">
+												Đã bán
+											</span>
+											<span>
+												${product.sale_count}
+											</span>
+										</div>
+		        
+		                               	
+										<button class="buy-now" data-translate-key="Buy Now">
+											MUA NGAY
+										</button>
+									</div>
+		                        </div>
+		                    </a>
+						</div>
+		                `;
+		            categoryList.innerHTML += productCard;
+		        });
+		        translatePage(langCode);
+		    }
+		    fetchRecommend()
+		    // 格式化金额
+		    function formatAmount(amount) {
+		        const number = Math.floor(Number(amount));
+		        return number.toLocaleString('en');
+		    }
+
+		    function fetchFlashProducts() {
+		        sendRequest(
+		            "POST",
+		            APIURL + "/api/Login/mhByFlash",
+		            {}, // data
+		            null,
+		            function (data) {
+		                const falshList = document.getElementById('falshList');
+		                falshList.innerHTML = '';
+		                // console.log('闪购盲盒', data.data);
+
+		                const products = data.data;
+		                products.forEach(product => {
+		                    let detailImagesHTML = '';
+		                    if (product.goods_list) {
+		                        product.goods_list.slice(0, 3).forEach(item => {
+		                            detailImagesHTML += `<img src="https://xexeboxes.com/${item.logo}" alt="" style="width: 30%; height: auto;">`;
+		                        });
+		                    }
+
+		                    const productCard = `
+		                    <div class="falsh-box">
+		                        <a href="https://xexeboxes.com/${product.is_recomend&#32;==&#32;2&#32;?&#32;'cdkGoods.html?id='&#32;+&#32;product.id&#32;:&#32;'goods.html?id='&#32;+&#32;product.id}">
+		                            <div class="product-img">
+		                                <img class="logo" src="https://xexeboxes.com/${product.logo}" alt="">
+		                                <div class="img-list">
+		                                    ${detailImagesHTML}
+		                                </div>
+		                            </div>
+		                            <div class="title-box">${langCode == 'zh' && product.title_zh?product.title_zh:langCode == 'en' && product.title_eng?product.title_eng:product.title}</div>
+		                            <div class="price-box">
+		                                ${product.is_recomend != 2 ? `<span class="current-price">${formatAmount(product.price)}đ</span>
+		                                <span class="original-price">
+										${formatAmount(product.originalPrice)}đ
+										</span>` : ''}
+		                                <div class="sale-box">
+											<span class="progress">
+											${product.progress.toFixed(1)}%
+											</span>
+										</div>
+		                            </div>
+		                            <div class="progress-bar-container">
+		                                <span class="progress-text">Only ${product.sale_all - product.sale_count} left! 👉</span>
+		                                <div class="progress-bar" style="width: ${product.progress}%;">
+										</div>
+		                            </div>
+		                        </a>
+		                    </div>
+		                `;
+		                    falshList.innerHTML += productCard;
+
+		                });
+		            },
+		            function (xhr, status, error) {
+		                // 错误回调
+		                console.error('获取闪购盲盒失败:', error);
+		            }
+		        );
+		    }
+		    // 更新进度条
+		    function updateProgressBar(total, sold) {
+		        const progressBar = document.querySelector('.progress-bar');
+		        const progress = (sold / total) * 100;
+		        progressBar.style.width = progress + '%';
+		    }
+		    fetchFlashProducts();
+
+
+		    var swiperContent = "";
+		    var swiperContentDom = jQuery("#swiperItme");
+		    sendRequest(
+		        "POST",
+		        APIURL + "/api/login/indexImageList",
+		        {}, // 请求数据为空对象
+		        null, // 不需要额外的 headers
+		        function (data) {
+		            // console.log('轮播图', data.data);
+		            // localStorage.setItem("idimg2",JSON.stringify(data.data));
+		            // let idimg2 = JSON.parse(localStorage.getItem("idimg2"));
+		            // swiperContent = ""; // 初始化 swiperContent 为空字符串
+		            // if (data.code){
+		            //     var swiperInfo = data.data;
+		            //     // console.log('轮播图请求数据')
+		            // }else{
+		            //     var swiperInfo = idimg2;
+		            //     console.log('轮播图缓存数据')
+		            //
+		            // }
+
+		            swiperContent = ""; // 初始化 swiperContent 为空字符串
+		            var swiperInfo = data.data;
+		            jQuery.each(swiperInfo, function (id, item) {
+		                let swiperUrl;
+		                    switch (langCode) {
+		                        case "vi":
+		                        swiperUrl = item.image || "null";
+		                            break;
+		                        case "en":
+		                        swiperUrl = item.en_image || "null";
+		                            break;
+		                        case "zh":
+		                        swiperUrl = item.cn_image || "null";
+		                            break;
+		                        default:
+		                        swiperUrl = item.image || "null"; // 默认使用越南语名称
+		                            break;
+		                    }
+		                swiperContent += `<div class="swiper-slide" style="background-image:url(https://xexeboxes.com/${swiperUrl});background-repeat: no-repeat;background-size: cover"><a href="https://xexeboxes.com/${item.url}" style="display:block;width: 100%;height: 100%"> </a></div>`;
+		            });
+		            swiperContentDom.append(swiperContent);
+		        },
+		        function (xhr, status, error) {
+		            // 错误回调
+		            console.error('请求失败:', error);
+		        }
+		    );
+		    // 格式化函数
+		    function formatAmount(amount) {
+		        const number = Math.floor(Number(amount));
+		        return number.toLocaleString('en');
+		    }
+
+		    var hours = "00" // 小时显示值
+		    var minutes = "00" // 分钟显示值
+		    var seconds = "00" // 秒钟显示值
+		    // 更新倒计时的方法
+		    function updateCountdown() {
+                var now = new Date(); // 获取当前时间
+                var tomorrow = new Date(now); // 复制当前日期
+		        // 设置为明天的0点0分0秒
+		        tomorrow.setDate(tomorrow.getDate() + 1);
+		        tomorrow.setHours(0, 0, 0, 0);
+
+		        // 计算当前时间到明天0点的毫秒数差值
+                var diff = tomorrow - now;
+		        // 计算剩余小时数
+		        hours = Math.floor(diff / (1000 * 60 * 60));
+		        // 计算剩余分钟数
+                minutes = Math.floor(
+		                (diff % (1000 * 60 * 60)) / (1000 * 60)
+		        );
+		        // 计算剩余秒数
+                seconds = Math.floor((diff % (1000 * 60)) / 1000);
+
+		        // 格式化为2位数显示
+		        hours = hours.toString().padStart(2, "0");
+		        minutes = minutes.toString().padStart(2, "0");
+		        seconds = seconds.toString().padStart(2, "0");
+
+                // 更新页面显示
+                getCountDown();
+		    }
+            function getCountDown(){
+                const countdown = document.querySelector('#countDown');
+                // 检查元素是否存在
+                var countdownHTML = `
+						<div class="flex justify-center items-center" style="padding:4px;width:23px;height:23px;background: #fff4f4;font-size:12px;color: #690e19">${hours}</div>
+						<div class="flex justify-center items-center" style="margin-left: 10px;padding:4px;width:23px;height:23px;background: #fff4f4;font-size:12px;color: #690e19">${minutes}</div>
+						<div class="flex justify-center items-center" style="margin-left: 10px;padding:4px;width:23px;height:23px;background: #fff4f4;font-size:12px;color: #690e19">${seconds}</div>
+
+					`
+                countdown.innerHTML = countdownHTML;
+            }
+      
+		    document.addEventListener('DOMContentLoaded', () => {
+                
+                
+                updateCountdown()
+            	setInterval(updateCountdown, 1000);
+		    })
+	</script>
+	<script type="text/javascript" src="jquery/common.js%3Fv=5.12.1"></script>
+	<script>
+		function showIcon() {
+			var img1 = document.createElement("img");
+			img1.src = "/images/icon_cz_"+langCode + ".png";
+			img1.style.cssText = "position:fixed;bottom:220px;right:10px;width:50px;height:50px;z-index:9999;";
+			// 点击跳转
+			img1.onclick = function () {
+				if(token)location.href = "/paymentMethods.html";
+				else {
+					$("#kjdl").show();
+					$("#userInfo").show();
+					$("#loginInfo").show();
+					$("#zcInfo").hide();
+					document.getElementById('dltitle').style.color = '#7c1820';
+					document.getElementById('zctitle').style.color = '#707f81';
+					// 禁止页面滚动
+					document.body.style.overflow = "hidden";
+
+					// 设置焦点到弹出层
+					$("#email").focus();
+				}
+			}
+			document.body.appendChild(img1);
+			var img2 = document.createElement("img");
+			img2.src = "/images/icon_rw_"+langCode + ".png";
+			img2.style.cssText = "position:fixed;bottom:170px;right:10px;width:50px;height:50px;z-index:9999;";
+			img2.onclick = function () {
+				if(token)location.href = "/blog/taskCenter.html";
+				else {
+					$("#kjdl").show();
+					$("#userInfo").show();
+					$("#loginInfo").show();
+					$("#zcInfo").hide();
+					document.getElementById('dltitle').style.color = '#7c1820';
+					document.getElementById('zctitle').style.color = '#707f81';
+					// 禁止页面滚动
+					document.body.style.overflow = "hidden";
+
+					// 设置焦点到弹出层
+					$("#email").focus();
+				}
+			}
+			document.body.appendChild(img2);
+		};
+		setTimeout(function () {
+			showIcon();
+		},3000)
+		window.onload = function () {
+			window.scrollTo(0, 0); // 确保页面加载时滚动到顶部
+			function isIOS() {
+				return (
+					/iPad|iPhone|iPod/.test(navigator.userAgent) &&
+					!window.MSStream
+				);
+			}
+
+			// 获取当前页面的用户 ID
+			// 获取本地存储中的 userId
+			let userId = localStorage.getItem("userId");
+			if (!userId) {
+				userId = new URLSearchParams(window.location.search).get(
+					"state"
+				);
+				// console.log('从 URL 获取用户 ID:', userId);
+				// 如果 URL 中有 userId，则存储到本地
+				if (userId) {
+					localStorage.setItem("userId", userId);
+				}
+			} else {
+				console.log("从本地存储获取用户 ID:", userId);
+			}
+
+			// 初始化 Google 客户端
+			google.accounts.id.initialize({
+				client_id:
+					"162229971767-ccspei8lnfk1j66m1323pbj4p4p7u7kr.apps.googleusercontent.com", // 替换为你的 Google 客户端 ID
+				callback: handleCredentialResponse,
+				state: userId, // 将 user_id 传递到回调
+			});
+
+			// 渲染 Google 登录按钮
+			google.accounts.id.renderButton(
+				document.getElementById("googleSignInBtn"),
+				{ type: "icon", theme: "filled_blue", size: "large" } // 按钮的样式配置
+			);
+
+			// 仅在非 iOS 设备上自动显示 One Tap 登录
+			if (!isIOS()) {
+				google.accounts.id.prompt();
+			}
+
+			// 处理 Google 返回的凭证
+			function handleCredentialResponse(response) {
+				const idToken = response.credential;
+				// let urlParams = new URLSearchParams(window.location.search);
+				let state = localStorage.getItem("userId"); // 获取 state 参数的值
+				// console.log(state);
+				// 将 ID token 发送到后端进行验证
+				fetch(APIURL + "/api/login/googleCallBack", {
+					// 替换为你的后端 URL
+					method: "POST",
+					headers: {
+						"Content-Type": "application/json",
+					},
+					body: JSON.stringify({ id_token: idToken, state: state }),
+				})
+					.then((res) => res.json())
+					.then((data) => {
+						// console.log(response, "response11111");
+						if (data.code === 200) {
+							try {
+								localStorage.setItem("userEmail", data.email);
+								document.dispatchEvent(
+									new CustomEvent("CompleteRegistration", {
+										detail: {
+											userData: {
+												em: data.email,
+											},
+											customData: {
+												registration_method:
+													"Email Registration",
+											},
+										},
+									})
+								);
+							} catch (e) {
+								console.error(e);
+							}
+							var token = data.token;
+							localStorage.setItem("token", token);
+							setTimeout(function () {
+								location.reload();
+							}, 2000);
+						} else {
+							console.error("登录失败:", data.message);
+						}
+					})
+					.catch((error) => {
+						console.error("发生错误:", error);
+					});
+			}
+		};
+		function tzgz() {
+			window.location.href = "./provablyfair.html";
+		}
+	</script>
+	<script>
+		// var currentUrl = window.location.href;
+		// if (currentUrl.includes("#cb=")) {
+		//     window.location.href="https://xexeboxes.com/index.html";
+		// }
+		// 初始化 Facebook SDK
+		window.fbAsyncInit = function () {
+			FB.init({
+				appId: "836817528424029", // 替换为你的 Facebook 应用 ID
+				cookie: true, // 启用 Cookie
+				xfbml: true, // 解析页面上的社交插件
+				version: "v21.0", // 使用的 API 版本
+			});
+		};
+		// 登录函数
+		function loginWithFacebook() {
+			FB.login(
+				function (response) {
+					if (response.status === "connected") {
+						// 获取用户信息并发送到后端
+						getUserInfoAndSendToBackend(
+							response.authResponse.accessToken
+						);
+					} else {
+						alert("Facebook login failed or canceled.");
+					}
+				},
+				{ scope: "public_profile,email" }
+			); // 请求的权限
+		}
+		// 获取本地存储中的 userId
+		let userId = localStorage.getItem("userId");
+		if (!userId) {
+			userId = new URLSearchParams(window.location.search).get("state");
+			// console.log('从 URL 获取用户 ID:', userId);
+
+			// 如果 URL 中有 userId，则存储到本地
+			if (userId) {
+				localStorage.setItem("userId", userId);
+			}
+		} else {
+			console.log("从本地存储获取用户 ID:", userId);
+		}
+		// 获取用户信息并发送到后端
+		function getUserInfoAndSendToBackend(accessToken) {
+			// console.log(accessToken);exit;
+
+			FB.api("/me", { fields: "id,name,email" }, function (userResponse) {
+				//  console.log(userResponse);exit;
+				if (userResponse && !userResponse.error) {
+					// 用户信息
+					const userData = {
+						id: userResponse.id,
+						name: userResponse.name,
+						email: userResponse.email,
+						accessToken: accessToken,
+						state: userId,
+					};
+
+					// 发送到后端接口
+					fetch("https://mgboxadm.com/api/login/facebookCallBack", {
+						method: "POST",
+						headers: {
+							"Content-Type": "application/json",
+						},
+						body: JSON.stringify(userData),
+					})
+						.then((response) => response.json())
+						.then((data) => {
+							if (data.code === 200) {
+								try {
+									localStorage.setItem(
+										"userEmail",
+										data.email
+									);
+									document.dispatchEvent(
+										new CustomEvent(
+											"CompleteRegistration",
+											{
+												detail: {
+													userData: {
+														em: data.email,
+													},
+													customData: {
+														registration_method:
+															"Email Registration",
+													},
+												},
+											}
+										)
+									);
+								} catch (e) {
+									console.error(e);
+								}
+								var token = data.token;
+								localStorage.setItem("token", token);
+								localStorage.setItem("FBLogin", true);
+								setTimeout(function () {
+									location.reload();
+								}, 2000);
+							} else {
+								console.error("登录失败:", data.message);
+							}
+						})
+						.catch((error) => {
+							console.error(
+								"Error sending data to backend:",
+								error
+							);
+						});
+				}
+			});
+		}
+	</script>
+	<style>
+		.barrage-container {
+			width: 290px;
+			/* 容器宽度 */
+			height: 30px;
+			/* 弹幕区域的高度 */
+			overflow: hidden;
+			position: relative;
+			margin: 0 auto;
+		}
+
+		.barrage-list {
+			display: flex;
+			white-space: nowrap;
+			position: absolute;
+			top: 0;
+			left: 0;
+			/* 初始位置在容器左侧 */
+			animation: scrollLeft 10s linear infinite;
+			/* 定义滚动动画 */
+		}
+
+		.barrage-item {
+			padding: 0 10px;
+			margin-right: 10px;
+			font-size: 12px;
+			color: #fff;
+		}
+
+		/* 定义滚动动画 */
+		@keyframes scrollLeft {
+			0% {
+				transform: translateX(0);
+				/* 从容器左侧开始 */
+			}
+
+			100% {
+				transform: translateX(-100%);
+				/* 滚动到容器宽度的负值 */
+			}
+		}
+		.banner_wrap .swiper-slide {
+			height: 206px;
+			overflow: hidden;
+		}
+	</style>
+</html>

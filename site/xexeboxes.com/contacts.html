@@ -1,0 +1,421 @@
+<html class="light translated-ltr">
+
+<head>
+    <meta charset="utf-8">
+    <title>XéXé BOX</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no">
+    <meta name="description"
+        content='XexeBox mang đến cho bạn trải nghiệm đầy thú vị với các hộp quà "blind box". 🎁 Các hộp quà đều có giải thưởng mỗi lần mở hộp, với các sản phẩm đa dạng : như mỹ phẩm , phụ kiện iphone , phụ kiện công nghệ...., 👉👉phù hợp với mọi lứa tuổi và sở thích.'>
+    <meta property="og:image" content="https://MysterWin.com/og-image.png">
+    <meta name="google-site-verification" content="-2O4iQnog5ztruoC5cUgTVQnPCc7qel9mAJuLmAn7N4" />
+    <link rel="icon" type="image/svg+xml" href="favicon.svg">
+    <link rel="icon" type="image/png" href="favicon.png">
+    <link rel="preload" as="style" href="css/entry.css">
+    <link rel="preload" as="style" href="css/swiper.css">
+    <link rel="stylesheet" href="css/entry.css">
+    <link rel="manifest" href="manifest.json">
+    <link rel="stylesheet" href="css/swiper.css">
+    <script type="text/javascript" src="jquery/jquery-2.2.4.min.js"></script>
+    
+    <script type="text/javascript">
+        var script = document.createElement('script');
+        script.type = 'text/javascript';
+        script.src = '/js/config.js?t=' + new Date().getTime(); // 使用时间戳
+        document.head.appendChild(script);
+    </script>
+
+    <script type="text/javascript">
+        // 脚本路径与对应的版本号键名
+        const scripts = [
+            {path: '/js/header.js', key: 'header_js'},
+            {path: '/js/facebook-pixel-tracker.js', key: 'facebook_pixel_tracker_js'},
+        ];
+
+        // 动态加载脚本
+        function loadScript(src) {
+            return new Promise((resolve, reject) => {
+                const script = document.createElement('script');
+                script.src = src;
+                script.onload = resolve;
+                script.onerror = reject;
+                document.head.appendChild(script);
+            });
+        }
+        function init(){
+
+        }
+        // 获取版本号并加载脚本
+        function loadScriptsWithVersion() {
+            try {
+                // 请求版本号
+                // const response = await fetch('/api/version');
+                // const versions = await response.json();
+                // console.log(window.VersionConfig)
+                let versions = JSON.parse(localStorage.getItem('js_vers')) || {};
+
+                // 遍历脚本列表，动态加载
+                for (const {path, key} of scripts) {
+                    const version = versions[key];
+                    if (!version) {
+                        var scriptUrl = `${path}?v=` + new Date().getTime();
+                    } else {
+                        var scriptUrl = `${path}?v=${version}`;
+                    }
+                    loadScript(scriptUrl);
+                    console.log(`已加载: ${scriptUrl}`);
+                }
+            } catch (error) {
+                console.error('加载脚本失败:', error);
+            }
+        }
+
+        loadScriptsWithVersion(); // 等待脚本加载完成
+        init(); // 调用 init 方法
+    </script>
+         <script type="text/javascript" src="jquery/lang.js%3Fv=325"></script>
+    <script type="text/javascript" src="jquery/language.js%3Fv=325"></script>
+    <script src="https://accounts.google.com/gsi/client" async defer></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jsencrypt/3.0.0-rc.1/jsencrypt.min.js"></script>
+    <div id="fb-root"></div>
+    <script async defer crossorigin="anonymous" src="https://connect.facebook.net/en_US/sdk.js"></script>
+    <noscript>
+        <img height="1" width="1" 
+       src="https://www.facebook.com/tr?id=1002455247962667&ev=PageView
+       &noscript=1"/>
+    </noscript>
+</head>
+
+<body class="overflow-hidden" style="overflow: auto;background-color: #fff;">
+<noscript><iframe src="https://www.googletagmanager.com/ns.html?id=GTM-TT5R2LD2"
+                  height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
+
+    <div id="__nuxt" data-v-app="">
+        <div class="layout"><!---->
+            <div class="layout__header" style="background-color: #7c1820;">
+                <header data-v-c46e0b98="" class=" bg-[#620D18] transition-colors duration-300"
+                    style="background-color: #7c1820;">
+                    <div data-v-c46e0b98="" class="h-[60px] py-2.5 px-4  flex items-center justify-center">
+
+                        <div data-v-c46e0b98=""
+                            class="flex items-center text-white transition-colors duration-300 relative"
+                            style="width: 100%;;justify-content: space-between;">
+                            <a data-v-c46e0b98="" href="javascript:void(0);" class="back-button">
+                                <div
+                                    style="margin-right: 10px;width: 36px;height: 36px;background-color: #eadf77;border-radius: 50%;display: flex;align-items: center;justify-content: center;">
+                                    <img src="image/goods/arrow-left.svg" style="width: 16px;height: 16px;">
+                                </div>
+                            </a>
+                            <a data-v-c46e0b98="" href="index.html" class="">
+                                <span style="color: #eadf77;font-weight: bold;font-size: 18px;" data-translate-key="contacts us">Liên hệ</span>
+                            </a>
+                            <div style="display: flex;align-items: center;">
+                                <img src="image/index/menu.svg" alt="" style="padding: 8px;margin-left: auto;margin-right: 10px;background-color: #eadf77;border-radius: 50%;"
+                                    onclick="openMenuPop()">
+                                <div style="display: flex;align-items: center;" id="custom-link">
+                                    <div
+                                        style="width: 36px;height: 36px;background-color: #eadf77;border-radius: 50%;display: flex;align-items: center;justify-content: center;">
+
+                                        <svg width="20" height="20" viewBox="0 0 20 18" fill="none"
+                                            xmlns="http://www.w3.org/2000/svg">
+                                            <path
+                                                d="M10.1348 17.5C9.92192 17.5 9.74367 17.4282 9.6 17.2845C9.4565 17.141 9.38475 16.9628 9.38475 16.75C9.38475 16.5372 9.4565 16.359 9.6 16.2155C9.74367 16.0718 9.92192 16 10.1348 16H16.6923C16.7756 16 16.8477 15.9743 16.9088 15.923C16.9696 15.8718 17 15.8046 17 15.7212V8.727C17 6.81533 16.316 5.206 14.948 3.899C13.5802 2.592 11.9308 1.9385 10 1.9385C8.06917 1.9385 6.41983 2.592 5.052 3.899C3.684 5.206 3 6.81533 3 8.727V13.8652C3 14.0781 2.92817 14.2563 2.7845 14.4C2.641 14.5435 2.46283 14.6152 2.25 14.6152C1.7705 14.6152 1.359 14.4483 1.0155 14.1145C0.671833 13.7805 0.5 13.3737 0.5 12.8942V10.952C0.5 10.6277 0.592333 10.3305 0.777 10.0605C0.961667 9.79067 1.20267 9.57375 1.5 9.40975L1.54625 8.13275C1.62825 7.04425 1.91092 6.03592 2.39425 5.10775C2.87758 4.17958 3.49742 3.37158 4.25375 2.68375C5.01025 1.99592 5.88333 1.46 6.873 1.076C7.86283 0.691999 8.90517 0.5 10 0.5C11.0948 0.5 12.1346 0.691999 13.1193 1.076C14.1039 1.46 14.977 1.99333 15.7385 2.676C16.5 3.35867 17.1198 4.16408 17.598 5.09225C18.0762 6.02058 18.3614 7.02892 18.4538 8.11725L18.5 9.36925C18.791 9.50642 19.0304 9.70258 19.2183 9.95775C19.4061 10.2129 19.5 10.4975 19.5 10.8115V13.0442C19.5 13.3582 19.4061 13.6428 19.2183 13.898C19.0304 14.1532 18.791 14.3493 18.5 14.4865V15.7212C18.5 16.2134 18.3234 16.6329 17.9703 16.9797C17.6169 17.3266 17.1909 17.5 16.6923 17.5H10.1348ZM7.19225 10.7692C6.94742 10.7692 6.73875 10.6863 6.56625 10.5203C6.39392 10.3542 6.30775 10.1488 6.30775 9.90375C6.30775 9.65892 6.39392 9.45192 6.56625 9.28275C6.73875 9.11342 6.94742 9.02875 7.19225 9.02875C7.43725 9.02875 7.64592 9.11342 7.81825 9.28275C7.99075 9.45192 8.077 9.65892 8.077 9.90375C8.077 10.1488 7.99075 10.3542 7.81825 10.5203C7.64592 10.6863 7.43725 10.7692 7.19225 10.7692ZM12.8077 10.7692C12.5627 10.7692 12.3541 10.6863 12.1818 10.5203C12.0093 10.3542 11.923 10.1488 11.923 9.90375C11.923 9.65892 12.0093 9.45192 12.1818 9.28275C12.3541 9.11342 12.5627 9.02875 12.8077 9.02875C13.0526 9.02875 13.2612 9.11342 13.4337 9.28275C13.6061 9.45192 13.6923 9.65892 13.6923 9.90375C13.6923 10.1488 13.6061 10.3542 13.4337 10.5203C13.2612 10.6863 13.0526 10.7692 12.8077 10.7692ZM4.37125 9.2C4.26742 7.568 4.77508 6.1715 5.89425 5.0105C7.01342 3.84967 8.39867 3.26925 10.05 3.26925C11.4372 3.26925 12.6612 3.69842 13.722 4.55675C14.783 5.41508 15.4269 6.52625 15.6538 7.89025C14.2333 7.87358 12.9208 7.50058 11.7163 6.77125C10.5118 6.04175 9.58708 5.04175 8.94225 3.77125C8.68842 5.01475 8.15642 6.11408 7.34625 7.06925C6.53592 8.02442 5.54425 8.73467 4.37125 9.2Z"
+                                                fill="#7C1820" />
+                                        </svg>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </header>
+            </div>
+            <div class="layout__wrapper">
+                <div class="layout__content" style="padding: 0;">
+                    <section style="width: 90%;margin: 20px auto;background-color: #fff4f4;"
+                        class="p-4  lg:p-10 rounded-2xl   transition-colors duration-300">
+                        <h1 style="color: #7c1820;"
+                            class="mb-4 lg:mb-10 text-4xl leading-[54px] font-medium text-center  transition-colors duration-300">
+                            <font style="vertical-align: inherit;">
+                                <font style="vertical-align: inherit;" class="text105" data-translate-key="Contact Information"></font>
+                            </font>
+                        </h1>
+                        <p class="mb-6 text-black transition-colors duration-300">
+                            <font style="vertical-align: inherit;">
+                                <!--<font style="vertical-align: inherit;" class="text106" data-translate-key="contacts cont1"></font>-->
+                            </font>
+<!--                            <a href="/support.html"-->
+<!--                                class="text-[#6629FA] text-[#FFC701] underline transition-colors duration-300">-->
+<!--                                <font style="vertical-align: inherit;">-->
+<!--                                    <font style="vertical-align: inherit;" class="text56" data-translate-key="New ideas"></font>-->
+<!--                                </font>-->
+<!--                            </a>-->
+                            <font style="vertical-align: inherit;">
+                                <font style="vertical-align: inherit;" class="text107" data-translate-key="contacts cont2"></font>
+                            </font>
+                        </p>
+                        <div class="flex flex-col lg:flex-row gap-4">
+                            <div class="w-full lg:w-4/12">
+                                <h2 style="color: #7c1820;"
+                                    class="flex items-center text-2xl leading-9 font-medium  transition-colors duration-300">
+                                    <font style="vertical-align: inherit;">
+                                        <font style="vertical-align: inherit;" data-translate-key="contacts cont3" class="text108"></font>
+                                    </font>
+                                </h2>
+                                <p class="mt-2"><a href="contacts.html"
+                                        class="text-[#6629FA] text-[#FFC701] underline transition-colors duration-300">
+                                        <font style="vertical-align: inherit;">
+                                            <font style="vertical-align: inherit;" id="emailText"></font>
+                                        </font>
+                                    </a></p>
+                            </div>
+                            <div class="w-full lg:w-4/12">
+                                <h2 style="color: #7c1820;"
+                                    class="flex items-center text-2xl leading-9 font-medium  transition-colors duration-300">
+                                    <font style="vertical-align: inherit;">
+                                        <font style="vertical-align: inherit;" class="text109" data-translate-key="contacts cont4"></font>
+                                    </font>
+                                </h2>
+                                <p class="mt-2"><a href="contacts.html"
+                                        class="text-[#6629FA] text-[#FFC701] underline transition-colors duration-300">
+                                        <font style="vertical-align: inherit;">
+                                            <font style="vertical-align: inherit;" id="phoneText"></font>
+                                        </font>
+                                    </a></p>
+                            </div>
+                            <div class="w-full lg:w-8/12">
+                                <h2 style="color: #7c1820;"
+                                    class="flex items-center text-2xl leading-9 font-medium  transition-colors duration-300">
+                                    <font style="vertical-align: inherit;">
+                                        <font style="vertical-align: inherit;" class="text110" data-translate-key="contacts cont5"></font>
+                                    </font>
+                                </h2>
+                                <p class="mt-2 max-w-2xl  transition-colors duration-300">
+                                    <font style="vertical-align: inherit;">
+                                        <font style="vertical-align: inherit;" id="address"></font>
+                                    </font>
+                                </p>
+                            </div>
+                        </div>
+                    </section>
+                    <div class="layout__footer" style="margin-bottom: 80px;">
+                        <footer
+                            style="background-color: #74171e;padding: 40px 0 0 0;display: flex;flex-direction: column;align-items: center;">
+                            <ul class="flex flex-wrap justify-center gap-4 " id="zimeiti">
+                            </ul>
+                            <div class="logo" style="height: 32px;margin: 30px 0 0 0;">
+                                <img src="image/index/Logo.png" style="height:100%">
+                            </div>
+                            <nav class="mt-10 " style="padding-bottom: 45px;">
+                                <ul class="flex flex-wrap justify-center gap-5 "
+                                    style="flex-direction: column;align-items: center;">
+
+                                                                        <li><a href="contacts.html" class="text-xs  font-medium text-white/50 "
+                                            style="color: #fff;">
+                                            <span data-translate-key="Hotline">Liên hệ với chúng tôi</span>
+                                            <span id="rexian"></span></a>
+                                    </li>
+                                    <!-- <li><a href="/support.html" class="text-xs  font-medium text-white/50 "
+                                        style="color: #fff;" data-translate-key="Support Center">Trung tâm Hỗ trợ</a></li> -->
+                                    <!-- 隐私声明 -->
+                                    <li><a href="privacystatement.html"
+                                            class="text-xs  font-medium text-white/50 " style="color: #fff;"
+                                            data-translate-key="Privacy Policy">Chính sách quyền riêng tư</a>
+                                    </li>
+                                    <!-- 服务条款 -->
+                                    <li><a href="termsofservice.html"
+                                            class="text-xs  font-medium text-white/50 " style="color: #fff;"
+                                            data-translate-key="Terms of Service">Điều khoản sử dụng</a>
+                                    </li>
+                                    <!-- 平台规则 -->
+                                    <li><a href="provablyfair.html"
+                                            class="text-xs  font-medium text-white/50 " style="color: #fff;"
+                                            data-translate-key="Shipping & Return Policy">Chính sách vận chuyển & đổi
+                                            trả</a></li>
+                                    <!-- 常见问题解答 -->
+                                    <li><a href="faq.html" class="text-xs  font-medium text-white/50 "
+                                            style="color: #fff;" data-translate-key="FAQ">Câu hỏi thường gặp</a></li>
+                                    <!-- Cookice政策 -->
+                                  
+                                </ul>
+                            </nav>
+                            <div class="info"
+                                style="padding: 45px 0;border-top: 1px solid #fff;width: 100%;display: flex;justify-content: center;">
+                                <span style="color: #fff;font-size: 14px;">@2025 xexe commerce Co.Ltd. All rights reserved</span>
+                            </div>
+                        </footer>
+                    </div>
+                </div>
+            </div>
+
+            <!-- 底部tabbar -->
+ <div class=""></div>
+            <div data-v-b1df64fc="" class="flex  fixed bottom-0  w-full bg-[#620D18] py-2.5 px-2 pb-4 z-10"
+                style="padding-bottom: 1.3rem;padding-top: 1rem;z-index:22;width: min(100%, 428px)">
+                <div data-v-b1df64fc="" class="flex w-full" id="tobar">
+
+                </div>
+            </div>
+        </div>
+    </div>
+</body>
+
+<!-- Google Tag Manager (noscript) -->
+<noscript><iframe src="https://www.googletagmanager.com/ns.html?id=GTM-P6BMJ9FB"
+height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
+<!-- End Google Tag Manager (noscript) -->
+<!-- Google Tag Manager (noscript) -->
+<noscript><iframe src="https://www.googletagmanager.com/ns.html?id=GTM-TXPDDBNT"
+    height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
+    <!-- End Google Tag Manager (noscript) -->
+<script>
+    const currentPath = window.location.pathname;
+    localStorage.setItem("currentPath", currentPath)
+    // 监听返回
+    document.querySelector('.back-button').addEventListener('click', function () {
+        history.back();
+    });
+
+    var token = localStorage.getItem("token")
+
+    var id = ""
+    sendRequest(
+        "POST",
+        APIURL + "/api/Login/getFooter",
+        {},
+        null, // 不需要额外的 headers
+        function (data) {
+
+            // console.log(data, "data")
+            $("#emailText").text(data.data.mh_email)
+            $("#phoneText").text(data.data.dianhua)
+            $("#address").text(langCode == 'zh' && data.data.mh_dizhi_zh && data.data.mh_dizhi_zh[0]?data.data.mh_dizhi_zh[0]:langCode == 'en' && data.data.mh_dizhi_en && data.data.mh_dizhi_en[0]?data.data.mh_dizhi_en[0]:data.data.mh_dizhi);
+        },
+         function (xhr, status, error) {
+
+        }
+    )
+
+</script>
+
+<script>
+    window.onload = function () {
+        function isIOS() {
+            return /iPad|iPhone|iPod/.test(navigator.userAgent) && !window.MSStream;
+        }
+
+        // 获取本地存储中的 userId
+        let userId = localStorage.getItem('userId');
+
+
+        // 初始化 Google 客户端
+        google.accounts.id.initialize({
+            client_id: '162229971767-ccspei8lnfk1j66m1323pbj4p4p7u7kr.apps.googleusercontent.com', // 替换为你的 Google 客户端 ID
+            callback: handleCredentialResponse,
+            state: userId // 将 user_id 传递到回调
+        });
+
+        // 渲染 Google 登录按钮
+        google.accounts.id.renderButton(
+            document.getElementById('googleSignInBtn'),
+            { type: 'icon', theme: 'filled_blue', size: 'large' } // 按钮的样式配置
+        );
+
+        // 仅在非 iOS 设备上自动显示 One Tap 登录
+        if (!isIOS()) {
+            google.accounts.id.prompt();
+        }
+
+        // 处理 Google 返回的凭证
+        function handleCredentialResponse(response) {
+            const idToken = response.credential;
+            const state = localStorage.getItem('userId');
+
+            // 将 ID token 发送到后端进行验证
+            fetch(APIURL + '/api/login/googleCallBack', { // 替换为你的后端 URL
+                method: 'POST',
+                headers: {
+                    'Content-Type': 'application/json'
+                },
+                body: JSON.stringify({ id_token: idToken, state: state })
+
+            })
+                .then(res => res.json())
+                .then(data => {
+                    // console.log(response, "response11111");
+                    if (data.code === 200) {
+                        var token = data.token;
+                        localStorage.setItem('token', token);
+                        location.reload();
+                    } else {
+                        console.error('登录失败:', data.message);
+                    }
+                })
+                .catch(error => {
+                    console.error('发生错误:', error);
+                });
+        }
+    };
+</script>
+<script>
+    // 初始化 Facebook SDK
+    window.fbAsyncInit = function () {
+        FB.init({
+            appId: '836817528424029', // 替换为你的 Facebook 应用 ID
+            cookie: true,        // 启用 Cookie
+            xfbml: true,         // 解析页面上的社交插件
+            version: 'v21.0'     // 使用的 API 版本
+        });
+    };
+
+    // 登录函数
+    function loginWithFacebook() {
+        FB.login(function (response) {
+            if (response.status === 'connected') {
+                // 获取用户信息并发送到后端
+                getUserInfoAndSendToBackend(response.authResponse.accessToken);
+            } else {
+                alert('Facebook login failed or canceled.');
+            }
+        }, { scope: 'public_profile,email' }); // 请求的权限
+    }
+
+    // 获取用户信息并发送到后端
+    function getUserInfoAndSendToBackend(accessToken) {
+        FB.api('/me', { fields: 'id,name,email' }, function (userResponse) {
+            if (userResponse && !userResponse.error) {
+                // 用户信息
+                const userData = {
+                    id: userResponse.id,
+                    name: userResponse.name,
+                    email: userResponse.email,
+                    accessToken: accessToken,
+                    state: localStorage.getItem('userId')
+                };
+
+                // 发送到后端接口
+                fetch('https://mgboxadm.com/api/login/facebookCallBack', {
+                    method: 'POST',
+                    headers: {
+                        'Content-Type': 'application/json'
+                    },
+                    body: JSON.stringify(userData)
+                })
+                    .then(response => response.json())
+                    .then(data => {
+                        if (data.code === 200) {
+                            var token = data.token;
+                            localStorage.setItem('token', token);
+                            localStorage.setItem('FBLogin', true);
+                            location.reload();
+                        } else {
+                            console.error('登录失败:', data.message);
+                        }
+                    })
+                    .catch(error => {
+                        console.error('Error sending data to backend:', error);
+                    });
+            }
+        });
+    }
+</script>
+<script type="text/javascript" src="jquery/common.js"></script>
+</html>

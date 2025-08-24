@@ -1,0 +1,825 @@
+<html class="light">
+
+<head>
+  <meta charset="utf-8">
+  <title>XéXé BOX</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no">
+  <meta name="description"
+        content='XexeBox mang đến cho bạn trải nghiệm đầy thú vị với các hộp quà "blind box". 🎁 Các hộp quà đều có giải thưởng mỗi lần mở hộp, với các sản phẩm đa dạng : như mỹ phẩm , phụ kiện iphone , phụ kiện công nghệ...., 👉👉phù hợp với mọi lứa tuổi và sở thích.'>
+  <meta property="og:image" content="https://MysterWin.com/og-image.png">
+  <meta name="google-site-verification" content="-2O4iQnog5ztruoC5cUgTVQnPCc7qel9mAJuLmAn7N4"/>
+  <link rel="icon" type="image/svg+xml" href="../favicon.svg">
+  <link rel="icon" type="image/png" href="../favicon.png">
+  <link rel="preload" as="style" href="../css/entry.css">
+  <link rel="preload" as="style" href="../css/swiper.css">
+  <link rel="stylesheet" href="../css/entry.css">
+  <link rel="manifest" href="../manifest.json">
+  <link rel="stylesheet" href="../css/swiper.css">
+  <link rel="stylesheet" href="../colorui/main.css">
+  <link rel="stylesheet" href="../colorui/icon.css">
+  <link rel="stylesheet" href="css/common.css">
+  <link rel="stylesheet" href="css/demo.css">
+  <script type="text/javascript" src="js/vue.js"></script>
+  <script type="text/javascript" src="../jquery/jquery-2.2.4.min.js"></script>
+  <!--<script type="text/javascript" src="/jquery/swiper.js"></script>-->
+  <!--<script type="text/javascript" src="/jquery/swiper.min.js"></script>-->
+  <script type="text/javascript" src="../jquery/swiper-bundle.min.js"></script>
+
+  <script type="text/javascript">
+    var script = document.createElement('script');
+    script.type = 'text/javascript';
+    script.src = '/js/config.js?t=' + new Date().getTime(); // 使用时间戳
+    document.head.appendChild(script);
+  </script>
+
+  <script type="text/javascript">
+    // 脚本路径与对应的版本号键名
+    const scripts = [
+      {path: '/js/header.js', key: 'header_js'},
+      {path: '/js/facebook-pixel-tracker.js', key: 'facebook_pixel_tracker_js'},
+    ];
+
+    // 动态加载脚本
+    function loadScript(src) {
+      return new Promise((resolve, reject) => {
+        const script = document.createElement('script');
+        script.src = src;
+        script.onload = resolve;
+        script.onerror = reject;
+        document.head.appendChild(script);
+      });
+    }
+
+    // 获取版本号并加载脚本
+    function loadScriptsWithVersion() {
+      try {
+        // 请求版本号
+        // const response = await fetch('/api/version');
+        // const versions = await response.json();
+        let versions = JSON.parse(localStorage.getItem('js_vers')) || {};
+
+        // 遍历脚本列表，动态加载
+        for (const {path, key} of scripts) {
+          const version = versions[key];
+          if (!version) {
+            var scriptUrl = `${path}?v=` + new Date().getTime();
+          } else {
+            var scriptUrl = `${path}?v=${version}`;
+          }
+          loadScript(scriptUrl);
+        }
+      } catch (error) {
+        console.error('加载脚本失败:', error);
+      }
+    }
+
+    loadScriptsWithVersion(); // 等待脚本加载完成
+  </script>
+  <script type="text/javascript" src="../jquery/language.js%3Fv=325"></script>
+  <script type="text/javascript" src="../jquery/lang.js%3Fv=325"></script>
+  <script src="https://accounts.google.com/gsi/client" async defer></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/jsencrypt/3.0.0-rc.1/jsencrypt.min.js"></script>
+  <div id="fb-root"></div>
+  <script async defer crossorigin="anonymous" src="https://connect.facebook.net/en_US/sdk.js"></script>
+  <noscript>
+    <img height="1" width="1"
+         src="https://www.facebook.com/tr?id=1002455247962667&ev=PageView
+     &noscript=1"/>
+  </noscript>
+</head>
+
+<body style="overflow: auto;background-color: #fff;">
+<noscript><iframe src="https://www.googletagmanager.com/ns.html?id=GTM-TT5R2LD2"
+                  height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
+
+<div id="__nuxt" data-v-app="">
+  <div class="layout">
+    <!-- 顶部 -->
+    <div class="layout__header" style="background-color: #7c1820;">
+      <header data-v-c46e0b98="" class=" bg-[#620D18] transition-colors duration-300"
+              style="background-color: #7c1820;">
+        <div data-v-c46e0b98="" class="h-[60px] py-2.5 px-4  flex items-center justify-center">
+          <div data-v-c46e0b98="" class="flex items-center text-white transition-colors duration-300 relative"
+               style="width: 100%;;justify-content: space-between;">
+
+            <a data-v-c46e0b98="" href="javascript:void(0);" class="back-button">
+              <div
+                      style="margin-right: 10px;width: 36px;height: 36px;background-color: #eadf77;border-radius: 50%;display: flex;align-items: center;justify-content: center;">
+                <img src="../image/goods/arrow-left.svg" style="width: 16px;height: 16px;">
+              </div>
+            </a>
+            <a data-v-c46e0b98="" href="../index.html" class="">
+              <span style="color: #eadf77;font-weight: bold;font-size: 18px;" _t="通知"></span>
+            </a>
+            <div style="display: flex;align-items: center;">
+              <img src="../image/index/menu.svg" alt=""
+                   style="padding: 8px;margin-left: auto;margin-right: 10px;background-color: #eadf77;border-radius: 50%;"
+                   onclick="openMenuPop()">
+              <div style="display: flex;align-items: center;" id="custom-link">
+                <div
+                        style="width: 36px;height: 36px;background-color: #eadf77;border-radius: 50%;display: flex;align-items: center;justify-content: center;">
+
+                  <svg width="20" height="20" viewBox="0 0 20 18" fill="none"
+                       xmlns="http://www.w3.org/2000/svg">
+                    <path
+                            d="M10.1348 17.5C9.92192 17.5 9.74367 17.4282 9.6 17.2845C9.4565 17.141 9.38475 16.9628 9.38475 16.75C9.38475 16.5372 9.4565 16.359 9.6 16.2155C9.74367 16.0718 9.92192 16 10.1348 16H16.6923C16.7756 16 16.8477 15.9743 16.9088 15.923C16.9696 15.8718 17 15.8046 17 15.7212V8.727C17 6.81533 16.316 5.206 14.948 3.899C13.5802 2.592 11.9308 1.9385 10 1.9385C8.06917 1.9385 6.41983 2.592 5.052 3.899C3.684 5.206 3 6.81533 3 8.727V13.8652C3 14.0781 2.92817 14.2563 2.7845 14.4C2.641 14.5435 2.46283 14.6152 2.25 14.6152C1.7705 14.6152 1.359 14.4483 1.0155 14.1145C0.671833 13.7805 0.5 13.3737 0.5 12.8942V10.952C0.5 10.6277 0.592333 10.3305 0.777 10.0605C0.961667 9.79067 1.20267 9.57375 1.5 9.40975L1.54625 8.13275C1.62825 7.04425 1.91092 6.03592 2.39425 5.10775C2.87758 4.17958 3.49742 3.37158 4.25375 2.68375C5.01025 1.99592 5.88333 1.46 6.873 1.076C7.86283 0.691999 8.90517 0.5 10 0.5C11.0948 0.5 12.1346 0.691999 13.1193 1.076C14.1039 1.46 14.977 1.99333 15.7385 2.676C16.5 3.35867 17.1198 4.16408 17.598 5.09225C18.0762 6.02058 18.3614 7.02892 18.4538 8.11725L18.5 9.36925C18.791 9.50642 19.0304 9.70258 19.2183 9.95775C19.4061 10.2129 19.5 10.4975 19.5 10.8115V13.0442C19.5 13.3582 19.4061 13.6428 19.2183 13.898C19.0304 14.1532 18.791 14.3493 18.5 14.4865V15.7212C18.5 16.2134 18.3234 16.6329 17.9703 16.9797C17.6169 17.3266 17.1909 17.5 16.6923 17.5H10.1348ZM7.19225 10.7692C6.94742 10.7692 6.73875 10.6863 6.56625 10.5203C6.39392 10.3542 6.30775 10.1488 6.30775 9.90375C6.30775 9.65892 6.39392 9.45192 6.56625 9.28275C6.73875 9.11342 6.94742 9.02875 7.19225 9.02875C7.43725 9.02875 7.64592 9.11342 7.81825 9.28275C7.99075 9.45192 8.077 9.65892 8.077 9.90375C8.077 10.1488 7.99075 10.3542 7.81825 10.5203C7.64592 10.6863 7.43725 10.7692 7.19225 10.7692ZM12.8077 10.7692C12.5627 10.7692 12.3541 10.6863 12.1818 10.5203C12.0093 10.3542 11.923 10.1488 11.923 9.90375C11.923 9.65892 12.0093 9.45192 12.1818 9.28275C12.3541 9.11342 12.5627 9.02875 12.8077 9.02875C13.0526 9.02875 13.2612 9.11342 13.4337 9.28275C13.6061 9.45192 13.6923 9.65892 13.6923 9.90375C13.6923 10.1488 13.6061 10.3542 13.4337 10.5203C13.2612 10.6863 13.0526 10.7692 12.8077 10.7692ZM4.37125 9.2C4.26742 7.568 4.77508 6.1715 5.89425 5.0105C7.01342 3.84967 8.39867 3.26925 10.05 3.26925C11.4372 3.26925 12.6612 3.69842 13.722 4.55675C14.783 5.41508 15.4269 6.52625 15.6538 7.89025C14.2333 7.87358 12.9208 7.50058 11.7163 6.77125C10.5118 6.04175 9.58708 5.04175 8.94225 3.77125C8.68842 5.01475 8.15642 6.11408 7.34625 7.06925C6.53592 8.02442 5.54425 8.73467 4.37125 9.2Z"
+                            fill="#7C1820"/>
+                  </svg>
+                </div>
+              </div>
+            </div>
+          </div>
+
+
+        </div>
+      </header>
+    </div>
+    <div class="layout__wrapper">
+
+      <div id="app" class="layout__content" style="padding: 0;">
+        <!-- 添加问题和创建帖子选项 -->
+        <div class="flex align-center" style="font-size: 14px;color: #404246;font-weight: bold">
+          <button
+                  class="flex-sub padding-sm"
+                  :class="{ active: mode === 'blog' }"
+                  ref="addQuestionButton"
+                  @click="toggleMode('blog')"
+          >{{translated("社区")}}<span>（{{ blog_total }}）</span></button>
+          <button
+                  class="flex-sub padding-sm"
+                  :class="{ active: mode === 'sys' }"
+                  ref="createPostButton"
+                  @click="toggleMode('sys')"
+          >{{translated("系统")}}<span>（{{ sys_total }}）</span></button>
+        </div>
+        <div @click="markAllAsRead" class="padding flex items-center" style="color:rgba(16, 19, 24, 1);">
+          <img v-if="mode === 'blog'" :src="blogImageUrl" alt="">
+          <img v-else :src="sysImageUrl" alt="">
+          <span style="padding-left: 10px;">
+            {{translated("标记所有已读")}}
+            </span>
+        </div>
+        <ul class="cu-list menu-avatar">
+          <div  v-for="(notice, index) in mode === 'blog' ? blogDatas : sysDatas" :key="index" @click="notice.is_read = 1;toggleRead(index)"  class="cu-list menu-avatar padding-tb-sm">
+            <div class="cu-item" :class="notice.is_read?'':'no_read'">
+              <div v-if="mode === 'blog'" class="cu-avatar round bg-oc-indigo-5" :style="{backgroundImage: 'url('+(formatImg(notice.from_avatar) || m_avatar)+')'}"
+              ></div>
+              <div v-else-if="mode === 'sys'" class="cu-avatar round bg-oc-indigo-5" :style="{backgroundImage: 'url('+adminAvatar(notice.type)+')'}"
+              ></div>
+              <div class="content" style="width:90%">
+                <div class="text-red" style="color:rgba(16, 19, 24, 1);width:90%">{{ notice.from_nickname||notice.from_mid }} {{ translated(notice.title) }}</div>
+
+                <div class="text-gray text-sm" v-if="expandedIndex === index && false" style="color: rgba(64, 66, 70, 1)">{{ tranlated(notice.content) }}</div>
+                <div class="text-gray text-sm" v-else style="color: rgba(64, 66, 70, 1)">{{ getShortContent(notice.content) }}</div>
+
+                <div class="text-gray text-xs" style="color:rgba(112, 113, 116, 1);">{{ translated(notice.create_time) }}</div>
+              </div>
+              <!--未读红点-->
+              <div class="padding-sm" style="height: 100%;position:relative">
+                <div v-if="notice.is_read === 0" class="unread-dot " style="position:absolute;right: 10%;bottom: 10%"></div>
+              </div>
+            </div>
+          </div>
+        </ul>
+        <div class="text-center flex flex-direction align-center" v-if="loading">
+          <button class="cu-btn bg-gray margin-top btn-primary">
+            <span>{{translated("加载中")}} ...</span>
+          </button>
+        </div>
+        <div class="text-center flex flex-direction align-center" v-else-if="(mode === 'blog' ? blogDatas : sysDatas).length == 0 && loaded">
+<!--          <svg t="1752091348481" class="icon" viewBox="0 0 1024 1024" version="1.1" xmlns="http://www.w3.org/2000/svg" p-id="1942" width="100" height="100"><path d="M725.099 269.071c9.153 0 16.609 7.31 16.609 15.948v398.652L622.396 800.61H337.667c-9.153 0-16.61-7.312-16.61-15.944V285.349c0-8.968 7.458-15.944 16.61-15.944h387.431v-0.334m0.001-9.966H337.667c-14.575 0-26.781 11.627-26.781 25.914v499.313c0 14.284 11.862 25.911 26.781 25.911h288.454l3.053-2.987 59.658-58.468 41.014-40.2 13.558-13.289c7.458-7.307 8.137-7.971 8.137-11.957V284.684c0.334-13.621-11.867-25.579-26.442-25.579z" fill="#00796a" p-id="1943"></path><path d="M670.604 349.226H425.95c-3.496 0-6.355 2.801-6.355 6.23v3.115c0 3.424 2.859 6.227 6.355 6.227h244.653c3.497 0 6.356-2.802 6.356-6.227v-3.115c0.001-3.425-2.858-6.23-6.355-6.23z m0 105.881H425.95c-3.496 0-6.355 2.801-6.355 6.226v3.116c0 3.424 2.859 6.226 6.355 6.226h244.653c3.497 0 6.356-2.802 6.356-6.226v-3.116c0.001-3.424-2.858-6.226-6.355-6.226zM626.467 808.265V686.594h124.495L626.467 808.265z" fill="#00796a" p-id="1944"></path><path d="M626.461 813.009a4.841 4.841 0 0 1-1.855-0.366 4.743 4.743 0 0 1-2.984-4.378V686.59c0-2.62 2.165-4.743 4.84-4.743h124.501c1.959 0 3.726 1.154 4.472 2.931a4.683 4.683 0 0 1-1.056 5.171l-124.5 121.674a4.885 4.885 0 0 1-3.418 1.386z m4.845-121.672v105.497l107.95-105.497h-107.95zM460.162 574.662c0 8.739 4.756 16.815 12.477 21.184a25.385 25.385 0 0 0 24.955 0c7.721-4.372 12.477-12.444 12.477-21.184 0-8.737-4.756-16.813-12.477-21.182a25.385 25.385 0 0 0-24.955 0c-7.721 4.372-12.477 12.445-12.477 21.182z m124.849 0c0 8.739 4.755 16.815 12.476 21.184a25.385 25.385 0 0 0 24.955 0c7.721-4.372 12.478-12.444 12.478-21.184 0-8.737-4.757-16.813-12.478-21.182a25.385 25.385 0 0 0-24.955 0c-7.721 4.372-12.476 12.445-12.476 21.182z m-37.243 64.833h-0.243c-12.687 0.065-25.491 5.555-39.137 16.781a5.64 5.64 0 0 0-0.721 8.052 5.913 5.913 0 0 0 8.215 0.703c22.766-18.72 41.128-18.724 63.387-0.012a5.909 5.909 0 0 0 8.219-0.616 5.631 5.631 0 0 0-0.628-8.056c-13.482-11.337-26.273-16.852-39.092-16.852M865.212 872.291H216.617c-2.671 0-4.841-2.123-4.841-4.743s2.169-4.743 4.841-4.743h648.595c2.676 0 4.841 2.123 4.841 4.743s-2.165 4.743-4.841 4.743z m152.767 0H888.894c-2.676 0-4.84-2.123-4.84-4.743s2.164-4.743 4.84-4.743h129.085c2.674 0 4.834 2.123 4.834 4.743s-2.161 4.743-4.834 4.743z m-823.7 0H97.467c-2.671 0-4.84-2.123-4.84-4.743s2.168-4.743 4.84-4.743h96.812c2.671 0 4.84 2.123 4.84 4.743s-2.169 4.743-4.84 4.743z m617.16 43.754H327.388c-2.675 0-4.841-2.121-4.841-4.743 0-2.62 2.166-4.743 4.841-4.743h484.051c2.674 0 4.84 2.123 4.84 4.743 0 2.622-2.166 4.743-4.84 4.743z m-506.895 0h-64.539c-2.671 0-4.841-2.121-4.841-4.743 0-2.62 2.169-4.743 4.841-4.743h64.539c2.675 0 4.841 2.123 4.841 4.743 0 2.622-2.166 4.743-4.841 4.743zM74.883 872.291H26.477c-2.671 0-4.84-2.123-4.84-4.743s2.169-4.743 4.84-4.743h48.406c2.671 0 4.84 2.123 4.84 4.743s-2.169 4.743-4.84 4.743zM119.512 742.62c0 9.604 5.228 18.48 13.714 23.282a27.908 27.908 0 0 0 27.429 0c8.487-4.802 13.714-13.678 13.714-23.282 0-9.605-5.227-18.479-13.714-23.283a27.908 27.908 0 0 0-27.429 0c-8.486 4.804-13.714 13.678-13.714 23.283z" fill="#00796a" p-id="1945"></path><path d="M146.94 774.248c-17.794 0-32.268-14.189-32.268-31.628 0-17.438 14.478-31.629 32.268-31.629 17.792 0 32.27 14.191 32.27 31.629 0 17.439-14.474 31.628-32.27 31.628z m0-53.769c-12.456 0-22.588 9.932-22.588 22.141 0 12.21 10.133 22.142 22.588 22.142 12.457 0 22.59-9.932 22.59-22.142 0-12.209-10.133-22.141-22.59-22.141zM119.512 274.53c0 12.229 10.114 22.141 22.589 22.141 12.475 0 22.588-9.913 22.588-22.141 0-7.91-4.306-15.22-11.295-19.175a22.984 22.984 0 0 0-22.588 0c-6.989 3.956-11.294 11.266-11.294 19.175z" fill="#00796a" p-id="1946"></path><path d="M142.102 301.415c-15.125 0-27.429-12.058-27.429-26.884 0-14.822 12.305-26.885 27.429-26.885 15.123 0 27.429 12.06 27.429 26.885-0.001 14.826-12.306 26.884-27.429 26.884z m0-44.282c-9.786 0-17.75 7.805-17.75 17.397s7.964 17.397 17.75 17.397c9.784 0 17.748-7.805 17.748-17.397s-7.964-17.397-17.748-17.397zM639.061 136.422c0 12.229 10.113 22.141 22.588 22.141 12.476 0 22.588-9.913 22.588-22.141 0-12.227-10.112-22.14-22.588-22.14-12.475 0-22.588 9.913-22.588 22.14z" fill="#00796a" p-id="1947"></path><path d="M661.648 163.307c-15.122 0-27.43-12.058-27.43-26.885 0-14.825 12.308-26.885 27.43-26.885s27.43 12.06 27.43 26.885c0 14.827-12.302 26.885-27.43 26.885z m0-44.278c-9.783 0-17.748 7.805-17.748 17.396 0 9.593 7.965 17.397 17.748 17.397 9.786 0 17.748-7.805 17.748-17.397 0-9.591-7.958-17.396-17.748-17.396zM214.972 315.646c-0.001 4.992 2.715 9.606 7.127 12.103a14.507 14.507 0 0 0 14.259 0c4.412-2.496 7.129-7.11 7.127-12.103 0.002-4.993-2.715-9.606-7.127-12.103a14.512 14.512 0 0 0-14.259 0c-4.412 2.498-7.128 7.111-7.127 12.103z" fill="#00796a" p-id="1948"></path><path d="M229.229 331.993c-9.195 0-16.677-7.332-16.677-16.347s7.482-16.346 16.677-16.346 16.677 7.332 16.677 16.346c-0.001 9.016-7.479 16.347-16.677 16.347z m0-27.949c-6.528 0-11.837 5.204-11.837 11.602 0 6.397 5.309 11.603 11.837 11.603 6.527 0 11.836-5.205 11.836-11.603-0.001-6.398-5.309-11.602-11.836-11.602zM761.412 753.024c0 4.992 2.717 9.606 7.129 12.104a14.509 14.509 0 0 0 14.257 0c4.412-2.497 7.13-7.111 7.128-12.104 0.002-4.992-2.716-9.606-7.128-12.104a14.514 14.514 0 0 0-14.257 0c-4.412 2.498-7.129 7.112-7.129 12.104zM411.823 124.301c-0.001 4.993 2.716 9.606 7.127 12.103a14.507 14.507 0 0 0 14.259 0c4.412-2.497 7.129-7.11 7.127-12.103 0.002-4.992-2.716-9.606-7.127-12.103a14.507 14.507 0 0 0-14.259 0c-4.411 2.496-7.128 7.111-7.127 12.103z" fill="#00796a" p-id="1949"></path><path d="M426.075 140.643c-9.194 0-16.677-7.331-16.677-16.346s7.482-16.342 16.677-16.342 16.677 7.331 16.677 16.346-7.477 16.342-16.677 16.342z m0-27.945c-6.527 0-11.836 5.205-11.836 11.603s5.309 11.602 11.836 11.602c6.528 0 11.837-5.205 11.837-11.602s-5.308-11.603-11.837-11.603zM837.788 446.901c-0.002 4.993 2.714 9.606 7.126 12.103a14.514 14.514 0 0 0 14.26 0c4.412-2.497 7.128-7.11 7.128-12.103s-2.716-9.607-7.128-12.103a14.51 14.51 0 0 0-14.26 0c-4.412 2.495-7.128 7.11-7.126 12.103z" fill="#00796a" p-id="1950"></path><path d="M852.045 463.247c-9.196 0-16.677-7.331-16.677-16.346s7.48-16.347 16.677-16.347c9.194 0 16.677 7.332 16.677 16.347s-7.483 16.346-16.677 16.346z m0-27.944c-6.527 0-11.837 5.205-11.837 11.602 0 6.398 5.31 11.603 11.837 11.603s11.835-5.205 11.835-11.603-5.308-11.602-11.835-11.602zM931.362 729.306c0 3.955 2.154 7.61 5.649 9.587s7.801 1.977 11.296 0 5.648-5.632 5.648-9.587-2.153-7.61-5.648-9.587a11.488 11.488 0 0 0-11.296 0c-3.494 1.976-5.649 5.632-5.649 9.587zM496.048 170.798c0 4.238 2.307 8.155 6.053 10.275a12.313 12.313 0 0 0 12.104 0c3.745-2.12 6.054-6.037 6.054-10.275 0-4.241-2.309-8.158-6.054-10.277a12.313 12.313 0 0 0-12.104 0c-3.746 2.12-6.053 6.037-6.053 10.277z" fill="#00796a" p-id="1951"></path><path d="M508.154 185.033c-8.01 0-14.525-6.385-14.525-14.235 0-7.851 6.52-14.237 14.525-14.237 8.004 0 14.525 6.386 14.525 14.237 0 7.85-6.517 14.235-14.525 14.235z m0-23.727c-5.338 0-9.685 4.258-9.685 9.493 0 5.232 4.346 9.491 9.685 9.491s9.685-4.259 9.685-9.491c0-5.236-4.347-9.493-9.685-9.493zM966.052 586.198c0 2.825 1.537 5.434 4.034 6.846s5.572 1.412 8.069 0 4.034-4.021 4.034-6.846c0-2.824-1.537-5.435-4.034-6.845a8.205 8.205 0 0 0-8.069 0c-2.497 1.411-4.034 4.021-4.034 6.845z" fill="#00796a" p-id="1952"></path><path d="M974.12 595.686c-5.338 0-9.681-4.258-9.681-9.487 0-5.23 4.343-9.488 9.681-9.488 5.339 0 9.682 4.258 9.682 9.488 0 5.229-4.343 9.487-9.682 9.487z m0-15.814c-3.56 0-6.452 2.838-6.452 6.326 0 3.487 2.893 6.325 6.452 6.325s6.453-2.838 6.453-6.325c0-3.488-2.894-6.326-6.453-6.326zM2.8 661.972c0 4.363 3.612 7.903 8.068 7.903 4.456 0 8.068-3.54 8.068-7.903 0-4.368-3.612-7.907-8.068-7.907-4.456-0.001-8.068 3.539-8.068 7.907z" fill="#00796a" p-id="1953"></path><path d="M10.868 671.458c-5.338 0-9.681-4.258-9.681-9.486 0-5.231 4.342-9.489 9.681-9.489 5.338 0 9.68 4.258 9.68 9.489 0 5.228-4.342 9.486-9.68 9.486z m0-15.813c-3.559 0-6.453 2.838-6.453 6.327 0 3.485 2.898 6.325 6.453 6.325 3.554 0 6.452-2.84 6.452-6.325 0.004-3.49-2.893-6.327-6.452-6.327zM64.65 412.111c0 4.365 3.612 7.904 8.068 7.904s8.068-3.539 8.068-7.904c0-4.366-3.612-7.906-8.068-7.906s-8.068 3.541-8.068 7.906z" fill="#00796a" p-id="1954"></path><path d="M72.718 421.599c-5.339 0-9.68-4.259-9.68-9.488 0-5.229 4.341-9.488 9.68-9.488 5.338 0 9.681 4.259 9.681 9.488 0 5.229-4.342 9.488-9.681 9.488z m0-15.815c-3.559 0-6.452 2.839-6.452 6.327 0 3.487 2.897 6.326 6.452 6.326 3.559 0 6.452-2.839 6.452-6.326 0-3.487-2.893-6.327-6.452-6.327zM312.528 188.885h-32.27c-1.783 0-3.227-1.416-3.227-3.162s1.444-3.161 3.227-3.161h32.27c1.784 0 3.229 1.415 3.229 3.161s-1.449 3.162-3.229 3.162z" fill="#00796a" p-id="1955"></path><path d="M296.137 207.035a3.189 3.189 0 0 1-2.269-0.911 3.187 3.187 0 0 1-0.96-2.25V168.08c0-1.747 1.445-3.162 3.229-3.162 1.783 0 3.228 1.415 3.228 3.162v35.794a3.203 3.203 0 0 1-3.228 3.161zM850.675 315.646h-37.197a3.201 3.201 0 0 1-2.27-0.911 3.198 3.198 0 0 1-0.958-2.25c0-1.747 1.443-3.162 3.228-3.162h37.197c1.784 0 3.229 1.415 3.229 3.162a3.195 3.195 0 0 1-3.229 3.161z" fill="#00796a" p-id="1956"></path><path d="M831.778 333.793a3.187 3.187 0 0 1-2.268-0.912 3.187 3.187 0 0 1-0.959-2.25v-35.794c0-1.746 1.442-3.161 3.227-3.161s3.229 1.415 3.229 3.161v35.794a3.197 3.197 0 0 1-3.229 3.162zM242.384 625.599h-37.202a3.197 3.197 0 0 1-3.228-3.162c0-1.745 1.445-3.161 3.228-3.161h37.202c1.783 0 3.229 1.416 3.229 3.161a3.194 3.194 0 0 1-3.229 3.162z" fill="#00796a" p-id="1957"></path><path d="M223.487 643.743a3.194 3.194 0 0 1-3.228-3.161v-35.793c0-1.746 1.444-3.162 3.228-3.162 1.785 0 3.229 1.416 3.229 3.162v35.793a3.19 3.19 0 0 1-3.229 3.161z" fill="#00796a" p-id="1958"></path></svg>-->
+          <p style="color: #707174;">
+            <img src="images/nodata.svg" alt="" style="width: 200px;height: 200px;"></img>
+            <span>{{translated("暂无通知")}}</span>
+          </p>
+        </div>
+        <div v-else-if="(mode === 'blog' ? blogDatas : sysDatas).length &&  loaded" class="margin-top flex flex-col items-center">
+          <span>- - - {{translated("没有更多了")}} - - -</span>
+        </div>
+        <div class="text-center flex flex-direction align-center" v-else-if="!loaded">
+          <button class="cu-btn bg-gray margin-top btn-primary" @click="loadmore_list">
+            <span>{{translated("加载更多")}}</span>
+          </button>
+        </div>
+      </div>
+      <!-- 创建帖子 -->
+      <div class="layout__footer" style="margin-bottom: 80px;">
+        <footer
+                style="background-color: #74171e;padding: 40px 0 0 0;display: flex;flex-direction: column;align-items: center;">
+          <ul class="flex flex-wrap justify-center gap-4 " id="zimeiti">
+          </ul>
+          <div class="logo" style="height: 32px;margin: 30px 0 0 0;">
+            <img src="../image/index/Logo.png" style="height:100%">
+          </div>
+          <nav class="mt-10 " style="padding-bottom: 45px;">
+            <ul class="flex flex-wrap justify-center gap-5 "
+                style="flex-direction: column;align-items: center;">
+
+              <li><a href="../contacts.html" class="text-xs  font-medium text-white/50 "
+                     style="color: #fff;">
+                <span data-translate-key="Hotline">"Liên hệ với chúng tôi</span>
+                <span id="rexian"></span></a>
+              </li>
+              <!-- 隐私声明 -->
+              <li><a href="../privacystatement.html" class="text-xs  font-medium text-white/50 "
+                     style="color: #fff;"
+                     data-translate-key="Privacy Policy">Chính sách quyền riêng tư</a>
+              </li>
+              <!-- 服务条款 -->
+              <li><a href="../termsofservice.html" class="text-xs  font-medium text-white/50 "
+                     style="color: #fff;"
+                     data-translate-key="Terms of Service">Điều khoản sử dụng</a>
+              </li>
+              <!-- 平台规则 -->
+              <li><a href="../provablyfair.html" class="text-xs  font-medium text-white/50 "
+                     style="color: #fff;"
+                     data-translate-key="Shipping & Return Policy">Chính sách vận chuyển & đổi
+                trả</a></li>
+              <!-- 常见问题解答 -->
+              <li><a href="../faq.html" class="text-xs  font-medium text-white/50 " style="color: #fff;"
+                     data-translate-key="FAQ">Câu hỏi thường gặp</a></li>
+
+            </ul>
+          </nav>
+          <div class="info"
+               style="padding: 45px 0;border-top: 1px solid #fff;width: 100%;display: flex;justify-content: center;">
+            <span style="color: #fff;font-size: 14px;">@2025 xexe commerce Co.Ltd. All rights reserved</span>
+          </div>
+        </footer>
+      </div>
+    </div>
+
+    <!-- 底部tabbar -->
+    <div class=""></div>
+    <div data-v-b1df64fc="" class="flex  fixed bottom-0  w-full bg-[#620D18] py-2.5 px-2 pb-4 z-10"
+         style="padding-bottom: 1.3rem;padding-top: 1rem;z-index:22;width: min(100%, 428px)">
+      <div data-v-b1df64fc="" class="flex w-full" id="tobar">
+
+      </div>
+    </div>
+    <div id="overlay"
+         style="display: none; position: fixed; top: 0; left: 0; width: 100%; height: 100%; background-color: rgba(0, 0, 0, 0.5); z-index: 500;"
+         onclick="closePopup()"></div>
+    <!-- 弹窗容器 -->
+    <div id="popup" style="display: none; position: absolute; z-index: 1000;  padding: 20px 10px; ">
+      <div class="pop-header">
+        <img src="../image/mall/icon1.png" alt="" style="margin-right: 10px;width: 15px;height: 15px;">
+        <span data-translate-key="about points">Về điểm thưởng</span>
+      </div>
+      <div class="pop-main">
+        <div class="pop-item">
+          <span class="item-title" data-translate-key="Points earned">1. Cách nhận điểm thưởng</span>
+          <span class="item-price" data-translate-key="Points earned cont">
+              Nếu không thích sản phẩm nhận được khi mở hộp mù, bạn có thể tìm Kho , chọn sản phẩm tương ứng, nhấp Đổi
+              sang
+              điểm thưởng và bạn sẽ nhận được số điểm tương ứng.
+              Đồng thời, nếu bạn mời bạn bè tham gia XéXé BOX, bạn có thể nhận được 5% trên tổng số tiền nạp của những người
+              bạn
+              được mời thành điểm phúc lợi của bạn.
+              Ví dụ: Nếu bạn của bạn nạp 1.000.000 vnd, bạn có thể nhận được 50 điểm.
+              Điểm có thể được đổi trong trung tâm mua sắm của trang Wed.
+            </span>
+        </div>
+        <div class="pop-item">
+          <span class="item-title" data-translate-key="Points usage"> 2. Cách sử dụng điểm thưởng</span>
+          <span class="item-price" data-translate-key="Points usage cont">Điểm có thể được đổi lấy các sản phẩm trong
+              trung tâm mua sắm, bạn có thể chọn một sản
+              phẩm trong trung tâm mua sắm. Nếu số điểm của bạn đủ, hãy nhấp vào Đổi ngay ở bên trái để đổi thành công
+              (bạn
+              cần điền địa chỉ).
+              Theo quy tắc bạn sẽ không đổi được sản phẩm nếu không đủ điểm .</span>
+        </div>
+      </div>
+      <button class="agree-btn" onclick="AgreePopup()" data-translate-key="knowed">Toi da biét rểi</button>
+      <div class="custom-checkbox"
+           style="display: flex; align-items: center;width: 100%;margin-top: 20px;justify-content: center;">
+        <div style="position: relative;"><input type="checkbox" id="agreeCheckbox"
+                                                style="border:1px solid gray;"
+                                                class="peer w-4 h-4 bg-transparent border
+   hover:border-[#74171e] rounded checked:bg-[#74171e] checked:border-[#74171e] appearance-none focus:outline-none
+   transition-colors duration-300 cursor-pointer">
+          <svg xmlns="http://www.w3.org/2000/svg" width="20px" height="20px" fill="none" style="top:3px;left:2px;"
+               class="absolute  opacity-0 peer-checked:opacity-100 transition-opacity duration-300 pointer-events-none">
+            <path stroke="#fff" stroke-width="2" d="m1 3 4 4 6-6"></path>
+          </svg>
+        </div>
+        <!-- <input type="checkbox" id="agreeCheckbox" /> -->
+        <label for="agreeCheckbox" style="font-size: 12px;" data-translate-key="not show"> Đừng nhắc
+          lại</label>
+      </div>
+
+    </div>
+    <!-- 商品详情弹窗 -->
+    <div class="vfm vfm--fixed vfm--inset flex " role="dialog" aria-modal="true"
+         style="z-index: 1000;display:none;" id="popupGoods">
+      <div class="vfm__overlay vfm--overlay vfm--absolute vfm--inset vfm--prevent-none" aria-hidden="true">
+      </div>
+      <div class="vfm__content vfm--outline-none relative flex flex-col  h-full p-5 " tabindex="0"
+           style="width: min(100%, 428px);
+        left: 50%;
+        transform: translateX(-50%); background-color: #fff;height: 90%;box-sizing: border-box;border-radius: 20px 20px 0 0; position: absolute; bottom: 0; ">
+        <div class="line absolute"
+             style="background-color: #d9d9d9;height:6px;width: 50%;border-radius: 30px;top:10px;left:24%">
+        </div>
+        <button class="absolute top-5 right-5 flex text-black " onclick="goodsInfoClose()"
+                style="top: 35px;">
+          <svg data-v-b323f4c4="" xmlns="http://www.w3.org/2000/svg" width="1em"
+               height="1em" viewBox="0 0 16 16" fill="none" class="icon">
+            <path fill="currentColor"
+                  d="M12.2 3.807a.664.664 0 0 0-.94 0L8 7.06 4.74 3.8a.664.664 0 1 0-.94.94L7.06 8 3.8 11.26a.664.664 0 1 0 .94.94L8 8.94l3.26 3.26a.664.664 0 1 0 .94-.94L8.94 8l3.26-3.26a.668.668 0 0 0 0-.933Z">
+            </path>
+          </svg>
+        </button>
+        <div class="title" style="text-align: center;font-size: 14px;font-weight: bold;margin-top: 10px;"
+             data-translate-key="Item Detail">Chi tiết sản
+          phẩm
+        </div>
+        <h3 class="text-base font-semibold uppercase text-black  transition-colors duration-300 "
+            id="goodsInfo"></h3>
+      </div>
+    </div>
+    <!--确认弹窗  -->
+    <div id="popupConfirm" style="display: none; position: fixed; z-index: 1000;  padding: 20px; top: 40%;">
+      <div style="width: 100%;display: flex;justify-content: flex-end;">
+        <svg class="close-icon" width="14" height="14" viewBox="0 0 14 14" fill="none"
+             xmlns="http://www.w3.org/2000/svg" onclick="closeConfirmPopup()">
+          <path
+                  d="M1.96868 13.4487L0.550781 12.0308L5.58158 7.00001L0.550781 2.00254L1.96868 0.584641L6.99948 5.61544L11.9969 0.584641L13.4148 2.00254L8.38405 7.00001L13.4148 12.0308L11.9969 13.4487L6.99948 8.41791L1.96868 13.4487Z"
+                  fill="black"/>
+        </svg>
+      </div>
+      <div style="margin-top: 20px;font-size: 12px;text-align: center;">
+        <span data-translate-key="buy success">Mua hàng thành công</span>
+      </div>
+
+      <div class="btn-box">
+        <button class="closeBtn" onclick="ck()" data-translate-key="To Inventory">Đến kho</button>
+        <button class="continueBtn" onclick="closeBuy()" data-translate-key="Continue">Trở lại Mall</button>
+      </div>
+
+    </div>
+  </div>
+</div>
+
+<!-- 去顶部 -->
+<div data-v-df364c00="" data-v-2d0daec7="" class="back-top" style="left:calc(50% - 24px);">
+  <img src="../image/common/top.svg" alt="" style="width: 20px;margin: 0 auto;">
+  <div data-v-df364c00="">TOP</div>
+</div>
+</body>
+<script>
+
+  var bodyDom2 = jQuery("#__nuxt")
+  var loadingContent = `    <!-- 加载动画 -->
+    <div id="loading-overlay2"
+        style="display: flex;flex-direction: column; justify-content: center; align-items: center; position: fixed; top: 0; left: 0; width: min(100%, 428px); left: 50%;
+        transform: translateX(-50%); height: 100%; background-color: #7c1820; z-index: 9999;">
+        <img src="../image/index/Logo.png" alt="" style="width: 40%;position: fixed;top:10px">
+        <div style="display: flex;flex-direction: column;width: 100%;padding: 3rem;box-sizing: border-box;">
+            <img src="../image/index/gifBox.svg" alt="" style="width: 100%;">
+            <img src="../image/index/load.gif" alt="" style="width: 100%;margin-top:20px">
+        </div>
+    </div>`
+  bodyDom2.after(loadingContent)
+  $(function () {
+    setTimeout(() => {
+      new Vue({
+        el: "#app",
+        data: {
+          token: false,
+          img_pat: "",
+          m_avatar:"/blog/images/defaultAvatar.svg", // 默认用户头像
+          new_total: 0,
+          data: {
+            page: 1,
+            limit: 10
+          },
+          loading: false,
+          loaded: false,
+          // datas: [],
+          blogDatas: [],
+          sysDatas: [],
+          expandedIndex: -1, // 记录当前展开的通知索引
+          mode: "blog",
+          blog_total:0,
+          sys_total:0
+        },
+        computed: {
+          blogImageUrl() {
+            const unreadCount = this.blogDatas.filter(item => item.is_read === 0).length;
+            return unreadCount === 0 ? './image/message.svg' : './image/newmessage.svg';
+          },
+          sysImageUrl() {
+            const unreadCount = this.sysDatas.filter(item => item.is_read === 0).length;
+            return unreadCount === 0 ? './image/message.svg' : './image/newmessage.svg';
+          }
+        },
+        created() {
+          this.token = localStorage.getItem("token");
+          if(localStorage.getItem("img_path"))this.img_path = localStorage.getItem("img_path");
+          else{
+            this.img_path = window.Domain + 'upload/'
+          }
+          // 获取URL查询参数
+          const urlParams = new URLSearchParams(window.location.search);
+          const mode = urlParams.get("mode")||'blog';
+          // 根据查询参数设置初始模式
+          if (mode === "blog") {
+            this.toggleMode(mode);
+          } else {
+            this.toggleMode(mode);
+          }
+          this.getNewsTotal();
+          this.getList();
+        },
+        methods: {
+          /*
+          * 这个_t方法是自定义一个vue的一个内置方法，标签内{{}}使用的。不要混淆了。
+          * */
+          translated(text="") {
+            if (typeof _t !== 'undefined')return text?_t(text):"";
+            else return "";
+          },
+          loadmore_list(){
+            this.data.page = this.data.page+1;
+            this.loaded = false;
+            this.getList()
+          },
+          getNewsTotal(){
+            let that =this
+            sendRequest(
+                    "POST",
+                    APIURL + "/api/blog/new_notice_total",
+                    JSON.stringify({}),
+                    this.token?{
+                      token: this.token, // 将 token 放入 Authorization 头中
+                    }: null,
+                    function (res) {
+                      that.blog_total = res.data.blog_total;
+                      that.sys_total  = res.data.sys_total;
+                    },
+                    function (xhr, status, error) {
+                      console.error(error);
+                    }
+            );
+          },
+          getList() {
+            if (!this.token){
+              const loadingOverlay = document.getElementById("loading-overlay2");
+              loadingOverlay.style.display = "none";
+              return loginPop();
+            }
+            if (this.loading) return;
+            if (this.loaded) return;
+            var that = this;
+            this.loading = true;
+            sendRequest(
+                    "POST",
+                    APIURL + "/api/blog/"+this.mode+"_notice",
+                    JSON.stringify(this.data),
+                    this.token?{ token: this.token }:null,
+                    function (res) {
+                      const loadingOverlay = document.getElementById("loading-overlay2");
+                      loadingOverlay.style.display = "none";
+                      that.loading = false;
+                      if(that.mode === "blog") {
+                        if(that.data.page == 1) {
+                          that.blogDatas = res.data.list;
+                        } else {
+                          that.blogDatas = that.blogDatas.concat(res.data.list);
+                        }
+                        if(res.data.total == 0 || that.blogDatas.length >= res.data.total ){
+                          that.loaded = true;
+                        }
+                      } else {
+                        if(that.data.page == 1) {
+                          that.sysDatas = res.data.list;
+                        } else {
+                          that.sysDatas = that.sysDatas.concat(res.data.list);
+                        }
+                        if(res.data.total == 0 || that.sysDatas.length >= res.data.total ){
+                          that.loaded = true;
+                        }
+                      }
+                    },
+                    function (xhr, status, error) {
+                      that.loading = false;
+                      console.error(error);
+                    }
+            );
+          },
+          markAllAsRead() {
+            if (!this.token) return loginPop();
+            var that = this;
+            sendRequest(
+                    "POST",
+                    APIURL + "/api/blog/all_read_"+this.mode+"_notice",
+                    {},
+                    { token: this.token },
+                    function (data) {
+                      that.getNewsTotal();
+                      that.data.page = 1;
+                      that.loaded = false;
+                      that.getList(); // 更新通知列表
+                    },
+                    function (xhr, status, error) {
+                      console.error(error);
+                    }
+            );
+          },
+          toggleRead(index) {
+            if (!this.token)return loginPop();
+            var that = this;
+
+            // 根据当前 mode 获取对应的数据
+            const currentData = that.mode === 'blog' ? that.blogDatas[index] : that.sysDatas[index];
+            // 弹出内容
+            sendRequest(
+                    "POST",
+                    APIURL + "/api/blog/read_"+this.mode+"_notice",
+                    JSON.stringify({ id: currentData.id }),
+                    { token: this.token },
+                    function (data) {
+                      that.getNewsTotal();
+                      // that.getList(); // 更新通知列表
+                    },
+                    function (xhr, status, error) {
+                      console.error(error);
+                    }
+            );
+          },
+          getShortContent(content) {
+            return content.length > 23 ? content.substring(0, 23) + " ..." : content;
+          },
+
+          // 不刷新修改页面路由
+          toggleMode(newMode) {
+            this.mode = newMode;
+            this.data.page = 1;
+            this.loaded = false;
+            this.blogDatas = [];
+            this.getNewsTotal();
+            this.getList()
+          },
+          formatImg(img){
+            if (!img) return;
+            // 如果https://开头，则返回原图片
+            if (img.startsWith('https://')) {
+              return img;
+            }
+            return this.img_path + img;
+          },
+          adminAvatar(type){
+            if(type === 2) {
+              return "./image/pass.svg"
+            } else if(type === 3) {
+              return "./image/fail.svg"
+            } else if(type === 4) {
+              return "./image/notice.svg"
+            }
+          },
+        }
+      });
+
+    },1000)
+  });
+</script>
+<style>
+  body{
+    background-color: #ffffff !important;
+  }
+  .unread-dot {
+    display: inline-block;
+    width: 8px;
+    height: 8px;
+    background-color: red;
+    border-radius: 50%;
+    position: absolute;
+    top: 0;
+    right: 0;
+  }
+
+  .cu-list.menu-avatar .cu-item {
+    padding: 10px;
+    border-bottom: 1px solid #f0f0f0;
+  }
+
+  .cu-list.menu-avatar .cu-item:last-child {
+    border-bottom: none;
+  }
+
+  .cu-list.menu-avatar .cu-item .content {
+    margin-left: 10px;
+  }
+
+  .cu-list.menu-avatar .cu-item .content h4 {
+    font-size: 16px;
+    margin-bottom: 5px;
+  }
+
+  .cu-list.menu-avatar .cu-item .content p {
+    font-size: 14px;
+    color: #666;
+  }
+
+  .cu-list.menu-avatar .cu-item .content small {
+    font-size: 12px;
+    color: #999;
+  }
+  .cu-list>.cu-item .content{
+    left: 50px;
+  }
+
+  .no_read{
+    background-color: #f0f0f0 !important;
+  }
+
+  .active {
+    border-bottom: 2px solid #7c1820;
+  }
+</style>
+<!-- Google Tag Manager (noscript) -->
+<noscript>
+  <iframe src="https://www.googletagmanager.com/ns.html?id=GTM-P6BMJ9FB"
+          height="0" width="0" style="display:none;visibility:hidden"></iframe>
+</noscript>
+<!-- End Google Tag Manager (noscript) -->
+<!-- Google Tag Manager (noscript) -->
+<noscript>
+  <iframe src="https://www.googletagmanager.com/ns.html?id=GTM-TXPDDBNT"
+          height="0" width="0" style="display:none;visibility:hidden"></iframe>
+</noscript>
+<!-- End Google Tag Manager (noscript) -->
+
+<script>
+  const currentPath = window.location.pathname;
+  localStorage.setItem("currentPath", currentPath)
+
+  document.querySelector('.back-button').addEventListener('click', function () {
+    history.back();
+  });
+
+  var token = localStorage.getItem("token")
+
+  document.addEventListener('DOMContentLoaded', function () {
+    const backTopButton = document.querySelector('.back-top');
+
+    // 监听页面滚动事件
+    window.addEventListener('scroll', function () {
+      if (window.scrollY > 100) {
+        // 如果页面滚动超过 100px，显示 back-top 按钮
+        backTopButton.style.display = 'block';
+      } else {
+        // 否则隐藏 back-top 按钮
+        backTopButton.style.display = 'none';
+      }
+    });
+
+    // 点击 back-top 按钮时，滚动到页面顶部
+    backTopButton.addEventListener('click', function () {
+      window.scrollTo({
+        top: 0,
+        behavior: 'smooth' // 平滑滚动
+      });
+
+      // 滚动到顶部后隐藏按钮
+      setTimeout(() => {
+        backTopButton.style.display = 'none';
+      }, 500); // 延迟 500ms 隐藏，确保滚动完成
+    });
+  });
+
+</script>
+<script type="text/javascript" src="../jquery/common.js"></script>
+<script>
+  window.onload = function () {
+    function isIOS() {
+      return /iPad|iPhone|iPod/.test(navigator.userAgent) && !window.MSStream;
+    }
+
+    // 获取本地存储中的 userId
+    let userId = localStorage.getItem('userId');
+    // 初始化 Google 客户端
+    google.accounts.id.initialize({
+      client_id: '162229971767-ccspei8lnfk1j66m1323pbj4p4p7u7kr.apps.googleusercontent.com', // 替换为你的 Google 客户端 ID
+      callback: handleCredentialResponse,
+      state: userId // 将 user_id 传递到回调
+    });
+
+    // 渲染 Google 登录按钮
+    google.accounts.id.renderButton(
+            document.getElementById('googleSignInBtn'),
+            {type: 'icon', theme: 'filled_blue', size: 'large'} // 按钮的样式配置
+    );
+
+    // 仅在非 iOS 设备上自动显示 One Tap 登录
+    if (!isIOS()) {
+      google.accounts.id.prompt();
+    }
+
+    // 处理 Google 返回的凭证
+    function handleCredentialResponse(response) {
+      const idToken = response.credential;
+      const state = localStorage.getItem('userId');
+
+      // 将 ID token 发送到后端进行验证
+      fetch(APIURL + '/api/login/googleCallBack', { // 替换为你的后端 URL
+        method: 'POST',
+        headers: {
+          'Content-Type': 'application/json'
+        },
+        body: JSON.stringify({id_token: idToken, state: state})
+
+      })
+              .then(res => res.json())
+              .then(data => {
+                if (data.code === 200) {
+
+                  var token = data.token;
+                  localStorage.setItem('token', token);
+                  location.reload();
+                } else {
+                  console.error('登录失败:', data.message);
+                }
+              })
+              .catch(error => {
+                console.error('发生错误:', error);
+              });
+    }
+  };
+
+  function tzgz() {
+    window.location.href = "/provablyfair.html";
+  }
+</script>
+<script>
+  // 初始化 Facebook SDK
+  window.fbAsyncInit = function () {
+    FB.init({
+      appId: '836817528424029', // 替换为你的 Facebook 应用 ID
+      cookie: true,        // 启用 Cookie
+      xfbml: true,         // 解析页面上的社交插件
+      version: 'v21.0'     // 使用的 API 版本
+    });
+  };
+
+  // 登录函数
+  function loginWithFacebook() {
+    FB.login(function (response) {
+      if (response.status === 'connected') {
+        // 获取用户信息并发送到后端
+        getUserInfoAndSendToBackend(response.authResponse.accessToken);
+      } else {
+        alert(translated("Facebook login failed or canceled."));
+      }
+    }, {scope: 'public_profile,email'}); // 请求的权限
+  }
+
+  // 获取用户信息并发送到后端
+  function getUserInfoAndSendToBackend(accessToken) {
+    FB.api('/me', {fields: 'id,name,email'}, function (userResponse) {
+      if (userResponse && !userResponse.error) {
+        // 用户信息
+        const userData = {
+          id: userResponse.id,
+          name: userResponse.name,
+          email: userResponse.email,
+          accessToken: accessToken
+        };
+
+        // 发送到后端接口
+        fetch('https://mgboxadm.com/api/login/facebookCallBack', {
+          method: 'POST',
+          headers: {
+            'Content-Type': 'application/json'
+          },
+          body: JSON.stringify(userData)
+        })
+                .then(response => response.json())
+                .then(data => {
+                  if (data.code === 200) {
+                    var token = data.token;
+                    localStorage.setItem('token', token);
+                    localStorage.setItem('FBLogin', true);
+                    location.reload();
+                  } else {
+                    console.error('登录失败:', data.message);
+                  }
+                })
+                .catch(error => {
+                  console.error('Error sending data to backend:', error);
+                });
+      }
+    });
+  }
+</script>
+<style>
+  .cu-list>.cu-item {
+    height: 88px;
+  }
+  .cu-list>.cu-item>.cu-avatar {
+    top: 16px;
+  }
+</style>
+
+</html>
