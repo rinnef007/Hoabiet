@@ -1,0 +1,40 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  html {
+    scroll-behavior: smooth;
+  }
+  
+  body {
+    font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', sans-serif;
+  }
+}
+
+@layer components {
+  .gradient-bg {
+    background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+  }
+  
+  .mystery-box-gradient {
+    background: linear-gradient(45deg, #f97316, #ea580c, #dc2626);
+  }
+  
+  .glow-effect {
+    box-shadow: 0 0 20px rgba(249, 115, 22, 0.3);
+  }
+  
+  .prize-glow {
+    animation: prize-pulse 2s ease-in-out infinite alternate;
+  }
+}
+
+@keyframes prize-pulse {
+  from {
+    box-shadow: 0 0 20px rgba(249, 115, 22, 0.4);
+  }
+  to {
+    box-shadow: 0 0 30px rgba(249, 115, 22, 0.8);
+  }
+}
